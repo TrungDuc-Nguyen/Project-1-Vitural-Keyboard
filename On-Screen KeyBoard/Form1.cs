@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using log4net;
 
 namespace On_Screen_KeyBoard
 {
@@ -19,51 +20,58 @@ namespace On_Screen_KeyBoard
              get
              {
                  CreateParams param = base.CreateParams;
-                     param.ExStyle = 0x08000000;
+                     param.ExStyle = 0x08000000; // gọi hàm Enable windows -> cấm focus vào app hiện tại
                  return param;
              }
          }
-             
 
+        //private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        /// <summary>
+        /// khai báo biến logger dùng ghi lại log, cấu hình ở App.cofig 
+        /// </summary>
+        private static readonly ILog logger = LogManager.GetLogger(typeof(Form1).Name);
         /*
-         [DllImport("USER32.DLL")]
-         private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+     [DllImport("USER32.DLL")]
+     private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
-         [DllImport("USER32.DLL")]
-          private static extern bool SetForegroundWindow(IntPtr hWnd);
+     [DllImport("USER32.DLL")]
+      private static extern bool SetForegroundWindow(IntPtr hWnd);
 
-         public void Find_Active()
+     public void Find_Active()
+     {
+         Process app = Process.Start("Notepad++");
+         app.WaitForInputIdle();
+         IntPtr hWnd = FindWindow(null, "Notepad++");
+         if (hWnd == IntPtr.Zero) 
          {
-             Process app = Process.Start("Notepad++");
-             app.WaitForInputIdle();
-             IntPtr hWnd = FindWindow(null, "Notepad++");
-             if (hWnd == IntPtr.Zero) 
-             {
-                 MessageBox.Show("Window not found!");
-             }
-             else 
-             {
-                 SetForegroundWindow(hWnd);
-                 SendKeys.Send("111");
-             }
-         }*/
+             MessageBox.Show("Window not found!");
+         }
+         else 
+         {
+             SetForegroundWindow(hWnd);
+             SendKeys.Send("111");
+         }
+     }*/
 
         public Form1()
         {
             InitializeComponent();
+            
+            // ghi log khi chạy form
+            //logger.Info("abc");
         }
 
+
+        /// <summary>
+        /// các hàm bool dùng để xử lý sự kiện với các phím Shift, Capslock, Fn
+        /// </summary>
         bool Shift_Button = false;
         bool Caps_Button = false;
         bool Fn_Button = false;
 
         #region Form
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-         
-        }
-
+       
         private void Form1_Deactivate(object sender, EventArgs e)
         {
 
@@ -76,7 +84,7 @@ namespace On_Screen_KeyBoard
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-
+            
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -95,6 +103,11 @@ namespace On_Screen_KeyBoard
 
         #endregion
 
+        /// <summary>
+        /// hàm xử lý sự kiện khi nhấn phím capslock
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         #region Code cho phím CapsLock
 
         private void Caps_CheckedChanged(object sender, EventArgs e)
@@ -178,6 +191,11 @@ namespace On_Screen_KeyBoard
         }
         #endregion
 
+        /// <summary>
+        /// hàm xử lý sự kiện khi nhấn phím shift
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         #region Code cho phím Shift
 
         private void Shift1_CheckedChanged(object sender, EventArgs e)
@@ -327,6 +345,11 @@ namespace On_Screen_KeyBoard
 
         #endregion
 
+        /// <summary>
+        /// hàm xử lý sự kiện khi nhấn phím Fn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         #region Code cho Fn
 
         private void Fn_CheckedChanged(object sender, EventArgs e)
@@ -382,6 +405,8 @@ namespace On_Screen_KeyBoard
         }
         #endregion
 
+
+        // các hàm dùng Send để gửi phím đến app
         private void Tab_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{TAB}");
@@ -435,7 +460,7 @@ namespace On_Screen_KeyBoard
             }          
             else 
             {
-                SendKeys.Send("q");
+                SendKeys.Send("q");              
             }
 
         }
@@ -1298,6 +1323,9 @@ namespace On_Screen_KeyBoard
             }
         }
 
-     
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
