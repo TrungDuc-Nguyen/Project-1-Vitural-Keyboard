@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using log4net;
+using log4net.Config;
+using System.Reflection;
 
 namespace On_Screen_KeyBoard
 {
@@ -23,14 +25,15 @@ namespace On_Screen_KeyBoard
                      param.ExStyle = 0x08000000; // gọi hàm Enable windows -> cấm focus vào app hiện tại
                  return param;
              }
-         }
-
+         }       
+        
         //private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
         /// khai báo biến logger dùng ghi lại log, cấu hình ở App.cofig 
         /// </summary>
         private static readonly ILog logger = LogManager.GetLogger(typeof(Form1).Name);
+
         /*
      [DllImport("USER32.DLL")]
      private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
@@ -53,13 +56,10 @@ namespace On_Screen_KeyBoard
              SendKeys.Send("111");
          }
      }*/
-
+     
         public Form1()
         {
-            InitializeComponent();
-            
-            // ghi log khi chạy form
-            //logger.Info("abc");
+            InitializeComponent();       
         }
 
 
@@ -84,12 +84,11 @@ namespace On_Screen_KeyBoard
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            
+          
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -99,6 +98,15 @@ namespace On_Screen_KeyBoard
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
 
         #endregion
@@ -410,11 +418,13 @@ namespace On_Screen_KeyBoard
         private void Tab_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{TAB}");
+            logger.Info("TAB");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{ESC}");
+            logger.Info("ESC");
         }
 
         private void button73_Click(object sender, EventArgs e)
@@ -430,6 +440,7 @@ namespace On_Screen_KeyBoard
         private void button85_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{Right}");
+            logger.Info("Right");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -438,16 +449,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F1}");
                 Fn.Checked = false;
+                logger.Info("F1");
             }
             else if(Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("!");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("!");
             }
             else
             {
                 SendKeys.Send("1");
+                logger.Info("1");
             }
         }
         private void q_Click(object sender, EventArgs e)
@@ -457,10 +471,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("Q");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("Q");
             }          
             else 
             {
-                SendKeys.Send("q");              
+                SendKeys.Send("q");
+                logger.Info("q");
             }
 
         }
@@ -472,10 +488,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("{~}");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("~");
             }
            else
             {
                 SendKeys.Send("`");
+                logger.Info("`");
             }
         }
 
@@ -512,32 +530,37 @@ namespace On_Screen_KeyBoard
 
         private void Nav_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Help_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{HELP}");
+            logger.Info("HELP");
         }
 
         private void ScrLk_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{SCROLLLOCK}");
+            logger.Info("SCROLLLOCK");
         }
 
         private void Pause_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{BREAK}");
+            logger.Info("BREAK");
         }
 
         private void PgDn_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{PGDN}");
+            logger.Info("PGDN");
         }
 
         private void PgUp_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{PGUP}");
+            logger.Info("PGUP");
         }
 
         private void Options_Click(object sender, EventArgs e)
@@ -548,31 +571,37 @@ namespace On_Screen_KeyBoard
         private void PrtScn_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{PRTSC}");
+            logger.Info("PRTSC");
         }
 
         private void Insert_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{INSERT}");
+            logger.Info("INSERT");
         }
 
         private void End_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{END}");
+            logger.Info("END");
         }
 
         private void Home_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{HOME}");
+            logger.Info("HOME");
         }
 
         private void Del_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{DEL}");
+            logger.Info("DEL");
         }
 
         private void Back_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{BS}");
+            logger.Info("BACKSPACE");
         }
 
         private void App_Click(object sender, EventArgs e)
@@ -583,6 +612,7 @@ namespace On_Screen_KeyBoard
         private void Enter_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{ENTER}");
+            logger.Info("ENTER");
         }
 
         private void Scars_Click(object sender, EventArgs e)
@@ -592,10 +622,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("|");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("|");
             }
             else
             {
                 SendKeys.Send("\\");
+                logger.Info("\\");
             }
         }
 
@@ -605,16 +637,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F12}");
                 Fn.Checked = false;
+                logger.Info("F12");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("{+}");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("+");
             }
             else
             {
                 SendKeys.Send("=");
+                logger.Info("=");
             }
         }
 
@@ -625,10 +660,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("}");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("}");
             }
             else
             {
                 SendKeys.Send("]");
+                logger.Info("]");
             }
         }
 
@@ -638,27 +675,32 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F11}");
                 Fn.Checked = false;
+                logger.Info("F11");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("_");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("_");
             }
             else
             {
                 SendKeys.Send("-");
+                logger.Info("-");
             }
         }
 
         private void Down_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{DOWN}");
+            logger.Info("DOWN");
         }
 
         private void Up_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{UP}");
+            logger.Info("UP");
         }
 
         private void Quotes_Click(object sender, EventArgs e)
@@ -668,10 +710,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("\"");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("\"");
             }
             else
             {
                 SendKeys.Send("\''");
+                logger.Info("\"");
             }
         }
 
@@ -682,10 +726,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("{");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("{");
             }
             else
             {
                 SendKeys.Send("[");
+                logger.Info("[");
             }
         }
 
@@ -695,22 +741,26 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F10}");
                 Fn.Checked = false;
+                logger.Info("F10");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("{)}");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("{)}");
             }
             else
             {
                 SendKeys.Send("0");
+                logger.Info("0");
             }
         }
 
         private void Left_Click(object sender, EventArgs e)
         {
             SendKeys.Send("{Left}");
+            logger.Info("LEFT");
         }
 
         private void Question_Click(object sender, EventArgs e)
@@ -721,10 +771,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("?");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("?");
             }
             else
             {
                 SendKeys.Send("/");
+                logger.Info("/");
             }
         }
 
@@ -735,10 +787,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send(":");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info(":");
             }
             else
             {
                 SendKeys.Send(";");
+                logger.Info(";");
             }
         }
 
@@ -749,10 +803,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("P");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("P");
             }
             else
             {
                 SendKeys.Send("p");
+                logger.Info("p");
             }
         }
 
@@ -762,16 +818,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F9}");
                 Fn.Checked = false;
+                logger.Info("F9");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("{(}");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("{(}");
             }
             else
             {
                 SendKeys.Send("9");
+                logger.Info("9");
             }
         }
 
@@ -783,10 +842,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send(">");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info(">");
             }
             else
             {
                 SendKeys.Send(".");
+                logger.Info(".");
             }
         }
 
@@ -797,10 +858,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("L");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("L");
             }
             else
             {
                 SendKeys.Send("l");
+                logger.Info("l");
             }
         }
 
@@ -811,10 +874,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("O");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("O");
             }
             else
             {
                 SendKeys.Send("o");
+                logger.Info("o");
             }
         }
 
@@ -824,16 +889,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F8}");
                 Fn.Checked = false;
+                logger.Info("F8");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("*");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("*");
             }
             else
             {
                 SendKeys.Send("8");
+                logger.Info("8");
             }
         }
 
@@ -844,10 +912,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("<");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("<");
             }
             else
             {
                 SendKeys.Send(",");
+                logger.Info(",");
             }
         }
 
@@ -858,10 +928,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("K");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("K");
             }
             else
             {
                 SendKeys.Send("k");
+                logger.Info("k");
             }
         }
 
@@ -872,10 +944,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("I");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("I");
             }
             else
             {
                 SendKeys.Send("i");
+                logger.Info("i");
             }
         }
 
@@ -885,16 +959,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F7}");
                 Fn.Checked = false;
+                logger.Info("F7");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("&");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("&");
             }
             else
             {
                 SendKeys.Send("7");
+                logger.Info("7");
             }
         }
 
@@ -905,10 +982,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("M");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("M");
             }
             else
             {
                 SendKeys.Send("m");
+                logger.Info("m");
             }
         }
 
@@ -919,10 +998,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("J");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("J");
             }
             else
             {
                 SendKeys.Send("j");
+                logger.Info("j");
             }
         }
 
@@ -933,10 +1014,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("U");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("U");
             }
             else
             {
                 SendKeys.Send("u");
+                logger.Info("u");
             }
         }
 
@@ -946,16 +1029,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F6}");
                 Fn.Checked = false;
+                logger.Info("F6");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("{^}");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("{^}");
             }
             else
             {
                 SendKeys.Send("6");
+                logger.Info("6");
             }
         }
 
@@ -966,10 +1052,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("N");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("N");
             }
             else
             {
                 SendKeys.Send("n");
+                logger.Info("n");
             }
         }
 
@@ -980,10 +1068,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("H");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("H");
             }
             else
             {
                 SendKeys.Send("h");
+                logger.Info("h");
             }
         }
 
@@ -994,10 +1084,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("Y");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("Y");
             }
             else
             {
                 SendKeys.Send("y");
+                logger.Info("y");
             }
         }
 
@@ -1007,16 +1099,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F5}");
                 Fn.Checked = false;
+                logger.Info("F5");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("{%}");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("{%}");
             }
             else
             {
                 SendKeys.Send("5");
+                logger.Info("5");
             }
         }
 
@@ -1027,10 +1122,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("B");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("B");
             }
             else
             {
                 SendKeys.Send("b");
+                logger.Info("b");
             }
         }
 
@@ -1041,10 +1138,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("G");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("G");
             }
             else
             {
                 SendKeys.Send("g");
+                logger.Info("g");
             }
         }
 
@@ -1055,10 +1154,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("T");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("T");
             }
             else
             {
                 SendKeys.Send("t");
+                logger.Info("t");
             }
         }
 
@@ -1068,22 +1169,26 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F4}");
                 Fn.Checked = false;
+                logger.Info("F4");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("$");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("$");
             }
             else
             {
                 SendKeys.Send("4");
+                logger.Info("4");
             }
         }
 
         private void Space_Click(object sender, EventArgs e)
         {
             SendKeys.Send(" ");
+            logger.Info("SPACE");
         }
 
         private void v_Click(object sender, EventArgs e)
@@ -1093,16 +1198,19 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("V");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("V");
             }
             else if(Ctrl1.Checked || Ctrl2.Checked)
             {
                 SendKeys.Send("^v");
                 Ctrl1.Checked = false;
                 Ctrl2.Checked = false;
+                logger.Info("PASTE");
             }
             else
             {
                 SendKeys.Send("v");
+                logger.Info("v");
             }
         }
 
@@ -1113,14 +1221,17 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("F");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("F");
             }
             else if(Ctrl1.Checked || Ctrl2.Checked)
             {
                 SendKeys.Send("^(f)");
+                logger.Info("FIND");
             }
             else
             {
                 SendKeys.Send("f");
+                logger.Info("f");
             }
         }
 
@@ -1131,10 +1242,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("R");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("R");
             }
             else
             {
                 SendKeys.Send("r");
+                logger.Info("r");
             }
         }
 
@@ -1144,16 +1257,19 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F3}");
                 Fn.Checked = false;
+                logger.Info("F3");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("#");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("#");
             }
             else
             {
                 SendKeys.Send("3");
+                logger.Info("3");
             }
         }
 
@@ -1164,16 +1280,19 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("C");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("C");
             }
             else if(Ctrl1.Checked || Ctrl2.Checked)
             {
                 SendKeys.Send("^c");
                 Ctrl1.Checked = false;
                 Ctrl2.Checked = false;
+                logger.Info("COPPY");
             }
             else
             {
                 SendKeys.Send("c");
+                logger.Info("c");
             }
         }
 
@@ -1184,16 +1303,19 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("D");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("D");
             }
             else if(Ctrl1.Checked || Ctrl2.Checked)
             {
                 SendKeys.Send("^(d)");
                 Ctrl1.Checked = false;
                 Ctrl2.Checked = false;
+                logger.Info("DELETE");
             }
             else
             {
                 SendKeys.Send("d");
+                logger.Info("d");
             }
         }
 
@@ -1204,10 +1326,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("E");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("E");
             }
             else
             {
                 SendKeys.Send("e");
+                logger.Info("e");
             }
         }
 
@@ -1217,22 +1341,26 @@ namespace On_Screen_KeyBoard
             {
                 SendKeys.Send("{F2}");
                 Fn.Checked = false;
+                logger.Info("F2");
             }
             else if (Shift1.Checked || Shift2.Checked)
             {
                 SendKeys.Send("@");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("@");
             }
             else
             {
                 SendKeys.Send("2");
+                logger.Info("2");
             }
         }
 
         private void Win_Click(object sender, EventArgs e)
         {
             SendKeys.Send("^({ESC})");
+            logger.Info("WINDOWS");
         }
 
         private void x_Click(object sender, EventArgs e)
@@ -1242,16 +1370,19 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("X");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("X");
             }
             else if(Ctrl1.Checked || Ctrl2.Checked)
             {
                 SendKeys.Send("^x");
                 Ctrl1.Checked = false;
                 Ctrl2.Checked = false;
+                logger.Info("CUT");
             }
             else
             {
                 SendKeys.Send("x");
+                logger.Info("x");
             }
         }
 
@@ -1262,10 +1393,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("S");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("S");
             }
             else
             {
                 SendKeys.Send("s");
+                logger.Info("s");
             }
         }
 
@@ -1276,10 +1409,12 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("W");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("W");
             }
             else
             {
                 SendKeys.Send("w");
+                logger.Info("w");
             }
         }
 
@@ -1290,16 +1425,19 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("Z");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("z");
             }
             else if(Ctrl1.Checked || Ctrl2.Checked)
             {
                 SendKeys.Send("^z");
                 Ctrl1.Checked = false;
                 Ctrl2.Checked = false;
+                logger.Info("UNDO");
             }
             else
             {
                 SendKeys.Send("z");
+                logger.Info("z");
             }
         }
 
@@ -1310,22 +1448,22 @@ namespace On_Screen_KeyBoard
                 SendKeys.Send("A");
                 Shift1.Checked = false;
                 Shift2.Checked = false;
+                logger.Info("A");
             }
             else if(Ctrl1.Checked || Ctrl2.Checked)
             {
                 SendKeys.Send("^a");
                 Ctrl1.Checked = false;
                 Ctrl2.Checked = false;
+                logger.Info("BLACKENED");
             }
             else
             {
                 SendKeys.Send("a");
+                logger.Info("a");
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
