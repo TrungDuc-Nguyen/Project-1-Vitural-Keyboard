@@ -102,14 +102,14 @@
             this.MvDn = new System.Windows.Forms.Button();
             this.Dock_Button = new System.Windows.Forms.Button();
             this.Fade = new System.Windows.Forms.Button();
-            this.Caps = new System.Windows.Forms.CheckBox();
-            this.Alt2 = new System.Windows.Forms.CheckBox();
-            this.Alt1 = new System.Windows.Forms.CheckBox();
             this.Fn = new System.Windows.Forms.CheckBox();
-            this.Shift1 = new System.Windows.Forms.CheckBox();
-            this.Shift2 = new System.Windows.Forms.CheckBox();
-            this.Ctrl2 = new System.Windows.Forms.CheckBox();
-            this.Ctrl1 = new System.Windows.Forms.CheckBox();
+            this.LShift = new System.Windows.Forms.Button();
+            this.Caps = new System.Windows.Forms.Button();
+            this.LCtrl = new System.Windows.Forms.Button();
+            this.LAlt = new System.Windows.Forms.Button();
+            this.RAlt = new System.Windows.Forms.Button();
+            this.RCtrl = new System.Windows.Forms.Button();
+            this.RShift = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Esc
@@ -122,10 +122,11 @@
             this.Esc.Name = "Esc";
             this.Esc.Size = new System.Drawing.Size(47, 37);
             this.Esc.TabIndex = 0;
+            this.Esc.Tag = "27";
             this.Esc.Text = "Esc";
             this.Esc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Esc.UseVisualStyleBackColor = false;
-            this.Esc.Click += new System.EventHandler(this.button1_Click);
+            this.Esc.Click += new System.EventHandler(this.Any_Click);
             // 
             // Console
             // 
@@ -139,7 +140,7 @@
             this.Console.TabIndex = 0;
             this.Console.Text = "~ `";
             this.Console.UseVisualStyleBackColor = false;
-            this.Console.Click += new System.EventHandler(this.Console_Click);
+            this.Console.Click += new System.EventHandler(this.Any_Click);
             // 
             // Tab
             // 
@@ -151,10 +152,11 @@
             this.Tab.Name = "Tab";
             this.Tab.Size = new System.Drawing.Size(47, 37);
             this.Tab.TabIndex = 0;
+            this.Tab.Tag = "9";
             this.Tab.Text = "Tab";
             this.Tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Tab.UseVisualStyleBackColor = false;
-            this.Tab.Click += new System.EventHandler(this.Tab_Click);
+            this.Tab.Click += new System.EventHandler(this.Any_Click);
             // 
             // q
             // 
@@ -166,9 +168,11 @@
             this.q.Name = "q";
             this.q.Size = new System.Drawing.Size(47, 37);
             this.q.TabIndex = 0;
+            this.q.Tag = "81";
             this.q.Text = "q";
             this.q.UseVisualStyleBackColor = false;
-            this.q.Click += new System.EventHandler(this.q_Click);
+            this.q.Click += new System.EventHandler(this.Any_Click);
+            this.q.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // a
             // 
@@ -176,13 +180,14 @@
             this.a.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.a.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.a.ForeColor = System.Drawing.Color.White;
-            this.a.Location = new System.Drawing.Point(70, 98);
+            this.a.Location = new System.Drawing.Point(70, 100);
             this.a.Name = "a";
             this.a.Size = new System.Drawing.Size(47, 37);
             this.a.TabIndex = 0;
+            this.a.Tag = "65";
             this.a.Text = "a";
             this.a.UseVisualStyleBackColor = false;
-            this.a.Click += new System.EventHandler(this.a_Click);
+            this.a.Click += new System.EventHandler(this.Any_Click);
             // 
             // z
             // 
@@ -194,9 +199,10 @@
             this.z.Name = "z";
             this.z.Size = new System.Drawing.Size(47, 37);
             this.z.TabIndex = 0;
+            this.z.Tag = "90";
             this.z.Text = "z";
             this.z.UseVisualStyleBackColor = false;
-            this.z.Click += new System.EventHandler(this.z_Click);
+            this.z.Click += new System.EventHandler(this.Any_Click);
             // 
             // one
             // 
@@ -210,7 +216,7 @@
             this.one.TabIndex = 0;
             this.one.Text = "!\r\n1";
             this.one.UseVisualStyleBackColor = false;
-            this.one.Click += new System.EventHandler(this.button3_Click);
+            this.one.Click += new System.EventHandler(this.Any_Click);
             // 
             // w
             // 
@@ -222,9 +228,10 @@
             this.w.Name = "w";
             this.w.Size = new System.Drawing.Size(47, 37);
             this.w.TabIndex = 0;
+            this.w.Tag = "87";
             this.w.Text = "w";
             this.w.UseVisualStyleBackColor = false;
-            this.w.Click += new System.EventHandler(this.w_Click);
+            this.w.Click += new System.EventHandler(this.Any_Click);
             // 
             // s
             // 
@@ -236,9 +243,10 @@
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(47, 37);
             this.s.TabIndex = 0;
+            this.s.Tag = "83";
             this.s.Text = "s";
             this.s.UseVisualStyleBackColor = false;
-            this.s.Click += new System.EventHandler(this.s_Click);
+            this.s.Click += new System.EventHandler(this.Any_Click);
             // 
             // x
             // 
@@ -250,9 +258,10 @@
             this.x.Name = "x";
             this.x.Size = new System.Drawing.Size(47, 37);
             this.x.TabIndex = 0;
+            this.x.Tag = "88";
             this.x.Text = "x";
             this.x.UseVisualStyleBackColor = false;
-            this.x.Click += new System.EventHandler(this.x_Click);
+            this.x.Click += new System.EventHandler(this.Any_Click);
             // 
             // Win
             // 
@@ -264,9 +273,10 @@
             this.Win.Name = "Win";
             this.Win.Size = new System.Drawing.Size(47, 37);
             this.Win.TabIndex = 0;
+            this.Win.Tag = "92";
             this.Win.Text = "Win";
             this.Win.UseVisualStyleBackColor = false;
-            this.Win.Click += new System.EventHandler(this.Win_Click);
+            this.Win.Click += new System.EventHandler(this.Any_Click);
             // 
             // two
             // 
@@ -280,7 +290,7 @@
             this.two.TabIndex = 0;
             this.two.Text = "@\r\n2";
             this.two.UseVisualStyleBackColor = false;
-            this.two.Click += new System.EventHandler(this.two_Click);
+            this.two.Click += new System.EventHandler(this.Any_Click);
             // 
             // e
             // 
@@ -292,9 +302,10 @@
             this.e.Name = "e";
             this.e.Size = new System.Drawing.Size(47, 37);
             this.e.TabIndex = 0;
+            this.e.Tag = "69";
             this.e.Text = "e";
             this.e.UseVisualStyleBackColor = false;
-            this.e.Click += new System.EventHandler(this.e_Click);
+            this.e.Click += new System.EventHandler(this.Any_Click);
             // 
             // d
             // 
@@ -306,9 +317,10 @@
             this.d.Name = "d";
             this.d.Size = new System.Drawing.Size(47, 37);
             this.d.TabIndex = 0;
+            this.d.Tag = "68";
             this.d.Text = "d";
             this.d.UseVisualStyleBackColor = false;
-            this.d.Click += new System.EventHandler(this.d_Click);
+            this.d.Click += new System.EventHandler(this.Any_Click);
             // 
             // c
             // 
@@ -320,9 +332,10 @@
             this.c.Name = "c";
             this.c.Size = new System.Drawing.Size(47, 37);
             this.c.TabIndex = 0;
+            this.c.Tag = "67";
             this.c.Text = "c";
             this.c.UseVisualStyleBackColor = false;
-            this.c.Click += new System.EventHandler(this.c_Click);
+            this.c.Click += new System.EventHandler(this.Any_Click);
             // 
             // three
             // 
@@ -336,7 +349,7 @@
             this.three.TabIndex = 0;
             this.three.Text = "#\r\n3";
             this.three.UseVisualStyleBackColor = false;
-            this.three.Click += new System.EventHandler(this.three_Click);
+            this.three.Click += new System.EventHandler(this.Any_Click);
             // 
             // r
             // 
@@ -348,9 +361,10 @@
             this.r.Name = "r";
             this.r.Size = new System.Drawing.Size(47, 37);
             this.r.TabIndex = 0;
+            this.r.Tag = "82";
             this.r.Text = "r";
             this.r.UseVisualStyleBackColor = false;
-            this.r.Click += new System.EventHandler(this.r_Click);
+            this.r.Click += new System.EventHandler(this.Any_Click);
             // 
             // f
             // 
@@ -362,9 +376,10 @@
             this.f.Name = "f";
             this.f.Size = new System.Drawing.Size(47, 37);
             this.f.TabIndex = 0;
+            this.f.Tag = "70";
             this.f.Text = "f";
             this.f.UseVisualStyleBackColor = false;
-            this.f.Click += new System.EventHandler(this.f_Click);
+            this.f.Click += new System.EventHandler(this.Any_Click);
             // 
             // v
             // 
@@ -376,9 +391,10 @@
             this.v.Name = "v";
             this.v.Size = new System.Drawing.Size(47, 37);
             this.v.TabIndex = 0;
+            this.v.Tag = "86";
             this.v.Text = "v";
             this.v.UseVisualStyleBackColor = false;
-            this.v.Click += new System.EventHandler(this.v_Click);
+            this.v.Click += new System.EventHandler(this.Any_Click);
             // 
             // Space
             // 
@@ -390,9 +406,10 @@
             this.Space.Name = "Space";
             this.Space.Size = new System.Drawing.Size(259, 37);
             this.Space.TabIndex = 0;
+            this.Space.Tag = "32";
             this.Space.Text = "Space";
             this.Space.UseVisualStyleBackColor = false;
-            this.Space.Click += new System.EventHandler(this.Space_Click);
+            this.Space.Click += new System.EventHandler(this.Any_Click);
             // 
             // four
             // 
@@ -406,7 +423,7 @@
             this.four.TabIndex = 0;
             this.four.Text = "$\r\n4";
             this.four.UseVisualStyleBackColor = false;
-            this.four.Click += new System.EventHandler(this.four_Click);
+            this.four.Click += new System.EventHandler(this.Any_Click);
             // 
             // t
             // 
@@ -418,9 +435,10 @@
             this.t.Name = "t";
             this.t.Size = new System.Drawing.Size(47, 37);
             this.t.TabIndex = 0;
+            this.t.Tag = "84";
             this.t.Text = "t";
             this.t.UseVisualStyleBackColor = false;
-            this.t.Click += new System.EventHandler(this.t_Click);
+            this.t.Click += new System.EventHandler(this.Any_Click);
             // 
             // g
             // 
@@ -432,9 +450,10 @@
             this.g.Name = "g";
             this.g.Size = new System.Drawing.Size(47, 37);
             this.g.TabIndex = 0;
+            this.g.Tag = "71";
             this.g.Text = "g";
             this.g.UseVisualStyleBackColor = false;
-            this.g.Click += new System.EventHandler(this.g_Click);
+            this.g.Click += new System.EventHandler(this.Any_Click);
             // 
             // b
             // 
@@ -446,9 +465,10 @@
             this.b.Name = "b";
             this.b.Size = new System.Drawing.Size(47, 37);
             this.b.TabIndex = 0;
+            this.b.Tag = "66";
             this.b.Text = "b";
             this.b.UseVisualStyleBackColor = false;
-            this.b.Click += new System.EventHandler(this.b_Click);
+            this.b.Click += new System.EventHandler(this.Any_Click);
             // 
             // five
             // 
@@ -462,7 +482,7 @@
             this.five.TabIndex = 0;
             this.five.Text = "%\r\n5";
             this.five.UseVisualStyleBackColor = false;
-            this.five.Click += new System.EventHandler(this.five_Click);
+            this.five.Click += new System.EventHandler(this.Any_Click);
             // 
             // y
             // 
@@ -474,9 +494,10 @@
             this.y.Name = "y";
             this.y.Size = new System.Drawing.Size(47, 37);
             this.y.TabIndex = 0;
+            this.y.Tag = "89";
             this.y.Text = "y";
             this.y.UseVisualStyleBackColor = false;
-            this.y.Click += new System.EventHandler(this.y_Click);
+            this.y.Click += new System.EventHandler(this.Any_Click);
             // 
             // h
             // 
@@ -488,9 +509,10 @@
             this.h.Name = "h";
             this.h.Size = new System.Drawing.Size(47, 37);
             this.h.TabIndex = 0;
+            this.h.Tag = "72";
             this.h.Text = "h";
             this.h.UseVisualStyleBackColor = false;
-            this.h.Click += new System.EventHandler(this.h_Click);
+            this.h.Click += new System.EventHandler(this.Any_Click);
             // 
             // n
             // 
@@ -502,9 +524,10 @@
             this.n.Name = "n";
             this.n.Size = new System.Drawing.Size(47, 37);
             this.n.TabIndex = 0;
+            this.n.Tag = "78";
             this.n.Text = "n";
             this.n.UseVisualStyleBackColor = false;
-            this.n.Click += new System.EventHandler(this.n_Click);
+            this.n.Click += new System.EventHandler(this.Any_Click);
             // 
             // six
             // 
@@ -518,7 +541,7 @@
             this.six.TabIndex = 0;
             this.six.Text = "^\r\n6";
             this.six.UseVisualStyleBackColor = false;
-            this.six.Click += new System.EventHandler(this.six_Click);
+            this.six.Click += new System.EventHandler(this.Any_Click);
             // 
             // u
             // 
@@ -530,9 +553,10 @@
             this.u.Name = "u";
             this.u.Size = new System.Drawing.Size(47, 37);
             this.u.TabIndex = 0;
+            this.u.Tag = "85";
             this.u.Text = "u";
             this.u.UseVisualStyleBackColor = false;
-            this.u.Click += new System.EventHandler(this.u_Click);
+            this.u.Click += new System.EventHandler(this.Any_Click);
             // 
             // j
             // 
@@ -544,9 +568,10 @@
             this.j.Name = "j";
             this.j.Size = new System.Drawing.Size(47, 37);
             this.j.TabIndex = 0;
+            this.j.Tag = "74";
             this.j.Text = "j";
             this.j.UseVisualStyleBackColor = false;
-            this.j.Click += new System.EventHandler(this.j_Click);
+            this.j.Click += new System.EventHandler(this.Any_Click);
             // 
             // m
             // 
@@ -558,9 +583,10 @@
             this.m.Name = "m";
             this.m.Size = new System.Drawing.Size(47, 37);
             this.m.TabIndex = 0;
+            this.m.Tag = "77";
             this.m.Text = "m";
             this.m.UseVisualStyleBackColor = false;
-            this.m.Click += new System.EventHandler(this.m_Click);
+            this.m.Click += new System.EventHandler(this.Any_Click);
             // 
             // seven
             // 
@@ -574,7 +600,7 @@
             this.seven.TabIndex = 0;
             this.seven.Text = "&\r\n7";
             this.seven.UseVisualStyleBackColor = false;
-            this.seven.Click += new System.EventHandler(this.seven_Click);
+            this.seven.Click += new System.EventHandler(this.Any_Click);
             // 
             // i
             // 
@@ -586,9 +612,10 @@
             this.i.Name = "i";
             this.i.Size = new System.Drawing.Size(47, 37);
             this.i.TabIndex = 0;
+            this.i.Tag = "73";
             this.i.Text = "i";
             this.i.UseVisualStyleBackColor = false;
-            this.i.Click += new System.EventHandler(this.i_Click);
+            this.i.Click += new System.EventHandler(this.Any_Click);
             // 
             // k
             // 
@@ -600,9 +627,10 @@
             this.k.Name = "k";
             this.k.Size = new System.Drawing.Size(47, 37);
             this.k.TabIndex = 0;
+            this.k.Tag = "75";
             this.k.Text = "k";
             this.k.UseVisualStyleBackColor = false;
-            this.k.Click += new System.EventHandler(this.k_Click);
+            this.k.Click += new System.EventHandler(this.Any_Click);
             // 
             // Smaller
             // 
@@ -616,7 +644,7 @@
             this.Smaller.TabIndex = 0;
             this.Smaller.Text = "<\r\n,";
             this.Smaller.UseVisualStyleBackColor = false;
-            this.Smaller.Click += new System.EventHandler(this.Smaller_Click);
+            this.Smaller.Click += new System.EventHandler(this.Any_Click);
             // 
             // eight
             // 
@@ -630,7 +658,7 @@
             this.eight.TabIndex = 0;
             this.eight.Text = "*\r\n8";
             this.eight.UseVisualStyleBackColor = false;
-            this.eight.Click += new System.EventHandler(this.eight_Click);
+            this.eight.Click += new System.EventHandler(this.Any_Click);
             // 
             // o
             // 
@@ -642,9 +670,10 @@
             this.o.Name = "o";
             this.o.Size = new System.Drawing.Size(47, 37);
             this.o.TabIndex = 0;
+            this.o.Tag = "79";
             this.o.Text = "o";
             this.o.UseVisualStyleBackColor = false;
-            this.o.Click += new System.EventHandler(this.o_Click);
+            this.o.Click += new System.EventHandler(this.Any_Click);
             // 
             // l
             // 
@@ -656,9 +685,10 @@
             this.l.Name = "l";
             this.l.Size = new System.Drawing.Size(47, 37);
             this.l.TabIndex = 0;
+            this.l.Tag = "76";
             this.l.Text = "l";
             this.l.UseVisualStyleBackColor = false;
-            this.l.Click += new System.EventHandler(this.l_Click);
+            this.l.Click += new System.EventHandler(this.Any_Click);
             // 
             // Bigger
             // 
@@ -672,7 +702,7 @@
             this.Bigger.TabIndex = 0;
             this.Bigger.Text = ">\r\n.";
             this.Bigger.UseVisualStyleBackColor = false;
-            this.Bigger.Click += new System.EventHandler(this.Bigger_Click);
+            this.Bigger.Click += new System.EventHandler(this.Any_Click);
             // 
             // nine
             // 
@@ -686,7 +716,7 @@
             this.nine.TabIndex = 0;
             this.nine.Text = "(\r\n9";
             this.nine.UseVisualStyleBackColor = false;
-            this.nine.Click += new System.EventHandler(this.nine_Click);
+            this.nine.Click += new System.EventHandler(this.Any_Click);
             // 
             // p
             // 
@@ -698,9 +728,10 @@
             this.p.Name = "p";
             this.p.Size = new System.Drawing.Size(47, 37);
             this.p.TabIndex = 0;
+            this.p.Tag = "80";
             this.p.Text = "p";
             this.p.UseVisualStyleBackColor = false;
-            this.p.Click += new System.EventHandler(this.p_Click);
+            this.p.Click += new System.EventHandler(this.Any_Click);
             // 
             // Clon
             // 
@@ -714,7 +745,7 @@
             this.Clon.TabIndex = 0;
             this.Clon.Text = ":\r\n;";
             this.Clon.UseVisualStyleBackColor = false;
-            this.Clon.Click += new System.EventHandler(this.Clon_Click);
+            this.Clon.Click += new System.EventHandler(this.Any_Click);
             // 
             // Question
             // 
@@ -728,7 +759,7 @@
             this.Question.TabIndex = 0;
             this.Question.Text = "?\r\n/";
             this.Question.UseVisualStyleBackColor = false;
-            this.Question.Click += new System.EventHandler(this.Question_Click);
+            this.Question.Click += new System.EventHandler(this.Any_Click);
             // 
             // Left_Button
             // 
@@ -740,9 +771,10 @@
             this.Left_Button.Name = "Left_Button";
             this.Left_Button.Size = new System.Drawing.Size(47, 37);
             this.Left_Button.TabIndex = 0;
+            this.Left_Button.Tag = "37";
             this.Left_Button.Text = "←";
             this.Left_Button.UseVisualStyleBackColor = false;
-            this.Left_Button.Click += new System.EventHandler(this.Left_Click);
+            this.Left_Button.Click += new System.EventHandler(this.Any_Click);
             // 
             // ten
             // 
@@ -756,7 +788,7 @@
             this.ten.TabIndex = 0;
             this.ten.Text = ")\r\n0";
             this.ten.UseVisualStyleBackColor = false;
-            this.ten.Click += new System.EventHandler(this.ten_Click);
+            this.ten.Click += new System.EventHandler(this.Any_Click);
             // 
             // OpenBracket
             // 
@@ -770,7 +802,7 @@
             this.OpenBracket.TabIndex = 0;
             this.OpenBracket.Text = "{\r\n[";
             this.OpenBracket.UseVisualStyleBackColor = false;
-            this.OpenBracket.Click += new System.EventHandler(this.OpenBracket_Click);
+            this.OpenBracket.Click += new System.EventHandler(this.Any_Click);
             // 
             // Quotes
             // 
@@ -784,7 +816,7 @@
             this.Quotes.TabIndex = 0;
             this.Quotes.Text = "\"\r\n\'";
             this.Quotes.UseVisualStyleBackColor = false;
-            this.Quotes.Click += new System.EventHandler(this.Quotes_Click);
+            this.Quotes.Click += new System.EventHandler(this.Any_Click);
             // 
             // Up
             // 
@@ -796,9 +828,10 @@
             this.Up.Name = "Up";
             this.Up.Size = new System.Drawing.Size(47, 37);
             this.Up.TabIndex = 0;
+            this.Up.Tag = "38";
             this.Up.Text = "↑";
             this.Up.UseVisualStyleBackColor = false;
-            this.Up.Click += new System.EventHandler(this.Up_Click);
+            this.Up.Click += new System.EventHandler(this.Any_Click);
             // 
             // Down
             // 
@@ -810,9 +843,10 @@
             this.Down.Name = "Down";
             this.Down.Size = new System.Drawing.Size(47, 37);
             this.Down.TabIndex = 0;
+            this.Down.Tag = "40";
             this.Down.Text = "↓";
             this.Down.UseVisualStyleBackColor = false;
-            this.Down.Click += new System.EventHandler(this.Down_Click);
+            this.Down.Click += new System.EventHandler(this.Any_Click);
             // 
             // Dash
             // 
@@ -826,7 +860,7 @@
             this.Dash.TabIndex = 0;
             this.Dash.Text = "-\r\n_";
             this.Dash.UseVisualStyleBackColor = false;
-            this.Dash.Click += new System.EventHandler(this.Dash_Click);
+            this.Dash.Click += new System.EventHandler(this.Any_Click);
             // 
             // CloseBracket
             // 
@@ -840,7 +874,7 @@
             this.CloseBracket.TabIndex = 0;
             this.CloseBracket.Text = "}\r\n]";
             this.CloseBracket.UseVisualStyleBackColor = false;
-            this.CloseBracket.Click += new System.EventHandler(this.CloseBracket_Click);
+            this.CloseBracket.Click += new System.EventHandler(this.Any_Click);
             // 
             // Right_Button
             // 
@@ -852,9 +886,10 @@
             this.Right_Button.Name = "Right_Button";
             this.Right_Button.Size = new System.Drawing.Size(47, 37);
             this.Right_Button.TabIndex = 0;
+            this.Right_Button.Tag = "39";
             this.Right_Button.Text = "→";
             this.Right_Button.UseVisualStyleBackColor = false;
-            this.Right_Button.Click += new System.EventHandler(this.button85_Click);
+            this.Right_Button.Click += new System.EventHandler(this.Any_Click);
             // 
             // Equal
             // 
@@ -868,7 +903,7 @@
             this.Equal.TabIndex = 0;
             this.Equal.Text = "+\r\n=";
             this.Equal.UseVisualStyleBackColor = false;
-            this.Equal.Click += new System.EventHandler(this.Equal_Click);
+            this.Equal.Click += new System.EventHandler(this.Any_Click);
             // 
             // Scars
             // 
@@ -882,7 +917,7 @@
             this.Scars.TabIndex = 0;
             this.Scars.Text = "|\r\n\\";
             this.Scars.UseVisualStyleBackColor = false;
-            this.Scars.Click += new System.EventHandler(this.Scars_Click);
+            this.Scars.Click += new System.EventHandler(this.Any_Click);
             // 
             // Enter_Button
             // 
@@ -894,9 +929,10 @@
             this.Enter_Button.Name = "Enter_Button";
             this.Enter_Button.Size = new System.Drawing.Size(135, 37);
             this.Enter_Button.TabIndex = 0;
+            this.Enter_Button.Tag = "13";
             this.Enter_Button.Text = "Enter";
             this.Enter_Button.UseVisualStyleBackColor = false;
-            this.Enter_Button.Click += new System.EventHandler(this.Enter_Click);
+            this.Enter_Button.Click += new System.EventHandler(this.Any_Click);
             // 
             // App
             // 
@@ -908,9 +944,10 @@
             this.App.Name = "App";
             this.App.Size = new System.Drawing.Size(47, 37);
             this.App.TabIndex = 0;
+            this.App.Tag = "2";
             this.App.Text = "App";
             this.App.UseVisualStyleBackColor = false;
-            this.App.Click += new System.EventHandler(this.App_Click);
+            this.App.Click += new System.EventHandler(this.Any_Click);
             // 
             // Back
             // 
@@ -922,9 +959,10 @@
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(47, 37);
             this.Back.TabIndex = 0;
+            this.Back.Tag = "8";
             this.Back.Text = "Back";
             this.Back.UseVisualStyleBackColor = false;
-            this.Back.Click += new System.EventHandler(this.Back_Click);
+            this.Back.Click += new System.EventHandler(this.Any_Click);
             // 
             // Del
             // 
@@ -936,9 +974,10 @@
             this.Del.Name = "Del";
             this.Del.Size = new System.Drawing.Size(47, 37);
             this.Del.TabIndex = 0;
+            this.Del.Tag = "46";
             this.Del.Text = "Del";
             this.Del.UseVisualStyleBackColor = false;
-            this.Del.Click += new System.EventHandler(this.Del_Click);
+            this.Del.Click += new System.EventHandler(this.Any_Click);
             // 
             // Home
             // 
@@ -950,9 +989,10 @@
             this.Home.Name = "Home";
             this.Home.Size = new System.Drawing.Size(63, 37);
             this.Home.TabIndex = 0;
+            this.Home.Tag = "36";
             this.Home.Text = "Home";
             this.Home.UseVisualStyleBackColor = false;
-            this.Home.Click += new System.EventHandler(this.Home_Click);
+            this.Home.Click += new System.EventHandler(this.Any_Click);
             // 
             // End
             // 
@@ -964,9 +1004,10 @@
             this.End.Name = "End";
             this.End.Size = new System.Drawing.Size(63, 37);
             this.End.TabIndex = 0;
+            this.End.Tag = "35";
             this.End.Text = "End";
             this.End.UseVisualStyleBackColor = false;
-            this.End.Click += new System.EventHandler(this.End_Click);
+            this.End.Click += new System.EventHandler(this.Any_Click);
             // 
             // Insert
             // 
@@ -978,9 +1019,10 @@
             this.Insert.Name = "Insert";
             this.Insert.Size = new System.Drawing.Size(63, 37);
             this.Insert.TabIndex = 0;
+            this.Insert.Tag = "45";
             this.Insert.Text = "Insert";
             this.Insert.UseVisualStyleBackColor = false;
-            this.Insert.Click += new System.EventHandler(this.Insert_Click);
+            this.Insert.Click += new System.EventHandler(this.Any_Click);
             // 
             // PrtScn
             // 
@@ -992,9 +1034,10 @@
             this.PrtScn.Name = "PrtScn";
             this.PrtScn.Size = new System.Drawing.Size(63, 37);
             this.PrtScn.TabIndex = 0;
+            this.PrtScn.Tag = "44";
             this.PrtScn.Text = "PrtScn";
             this.PrtScn.UseVisualStyleBackColor = false;
-            this.PrtScn.Click += new System.EventHandler(this.PrtScn_Click);
+            this.PrtScn.Click += new System.EventHandler(this.Any_Click);
             // 
             // Options
             // 
@@ -1008,7 +1051,7 @@
             this.Options.TabIndex = 0;
             this.Options.Text = "Options";
             this.Options.UseVisualStyleBackColor = false;
-            this.Options.Click += new System.EventHandler(this.Options_Click);
+            this.Options.Click += new System.EventHandler(this.Any_Click);
             // 
             // PgUp
             // 
@@ -1020,9 +1063,10 @@
             this.PgUp.Name = "PgUp";
             this.PgUp.Size = new System.Drawing.Size(52, 37);
             this.PgUp.TabIndex = 0;
+            this.PgUp.Tag = "33";
             this.PgUp.Text = "PgUp";
             this.PgUp.UseVisualStyleBackColor = false;
-            this.PgUp.Click += new System.EventHandler(this.PgUp_Click);
+            this.PgUp.Click += new System.EventHandler(this.Any_Click);
             // 
             // PgDn
             // 
@@ -1034,9 +1078,10 @@
             this.PgDn.Name = "PgDn";
             this.PgDn.Size = new System.Drawing.Size(52, 37);
             this.PgDn.TabIndex = 0;
+            this.PgDn.Tag = "34";
             this.PgDn.Text = "PgDn";
             this.PgDn.UseVisualStyleBackColor = false;
-            this.PgDn.Click += new System.EventHandler(this.PgDn_Click);
+            this.PgDn.Click += new System.EventHandler(this.Any_Click);
             // 
             // Break
             // 
@@ -1050,7 +1095,7 @@
             this.Break.TabIndex = 0;
             this.Break.Text = "Break";
             this.Break.UseVisualStyleBackColor = false;
-            this.Break.Click += new System.EventHandler(this.Pause_Click);
+            this.Break.Click += new System.EventHandler(this.Any_Click);
             // 
             // ScrLk
             // 
@@ -1062,9 +1107,10 @@
             this.ScrLk.Name = "ScrLk";
             this.ScrLk.Size = new System.Drawing.Size(52, 37);
             this.ScrLk.TabIndex = 0;
+            this.ScrLk.Tag = "145";
             this.ScrLk.Text = "ScrLk";
             this.ScrLk.UseVisualStyleBackColor = false;
-            this.ScrLk.Click += new System.EventHandler(this.ScrLk_Click);
+            this.ScrLk.Click += new System.EventHandler(this.Any_Click);
             // 
             // Help
             // 
@@ -1076,9 +1122,10 @@
             this.Help.Name = "Help";
             this.Help.Size = new System.Drawing.Size(52, 37);
             this.Help.TabIndex = 0;
+            this.Help.Tag = "47";
             this.Help.Text = "Help";
             this.Help.UseVisualStyleBackColor = false;
-            this.Help.Click += new System.EventHandler(this.Help_Click);
+            this.Help.Click += new System.EventHandler(this.Any_Click);
             // 
             // Nav
             // 
@@ -1092,7 +1139,7 @@
             this.Nav.TabIndex = 0;
             this.Nav.Text = "Nav";
             this.Nav.UseVisualStyleBackColor = false;
-            this.Nav.Click += new System.EventHandler(this.Nav_Click);
+            this.Nav.Click += new System.EventHandler(this.Any_Click);
             // 
             // MvUp
             // 
@@ -1106,7 +1153,7 @@
             this.MvUp.TabIndex = 0;
             this.MvUp.Text = "MvUp";
             this.MvUp.UseVisualStyleBackColor = false;
-            this.MvUp.Click += new System.EventHandler(this.MvUp_Click);
+            this.MvUp.Click += new System.EventHandler(this.Any_Click);
             // 
             // MvDn
             // 
@@ -1120,7 +1167,7 @@
             this.MvDn.TabIndex = 0;
             this.MvDn.Text = "MvDn";
             this.MvDn.UseVisualStyleBackColor = false;
-            this.MvDn.Click += new System.EventHandler(this.MvDn_Click);
+            this.MvDn.Click += new System.EventHandler(this.Any_Click);
             // 
             // Dock_Button
             // 
@@ -1134,7 +1181,7 @@
             this.Dock_Button.TabIndex = 0;
             this.Dock_Button.Text = "Dock";
             this.Dock_Button.UseVisualStyleBackColor = false;
-            this.Dock_Button.Click += new System.EventHandler(this.Dock_Click);
+            this.Dock_Button.Click += new System.EventHandler(this.Any_Click);
             // 
             // Fade
             // 
@@ -1148,55 +1195,7 @@
             this.Fade.TabIndex = 0;
             this.Fade.Text = "Fade";
             this.Fade.UseVisualStyleBackColor = false;
-            this.Fade.Click += new System.EventHandler(this.Fade_Click);
-            // 
-            // Caps
-            // 
-            this.Caps.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Caps.BackColor = System.Drawing.Color.Black;
-            this.Caps.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Caps.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Caps.ForeColor = System.Drawing.Color.White;
-            this.Caps.Location = new System.Drawing.Point(-1, 98);
-            this.Caps.Name = "Caps";
-            this.Caps.Size = new System.Drawing.Size(65, 36);
-            this.Caps.TabIndex = 2;
-            this.Caps.Text = "Caps";
-            this.Caps.UseVisualStyleBackColor = false;
-            this.Caps.CheckedChanged += new System.EventHandler(this.Caps_CheckedChanged);
-            // 
-            // Alt2
-            // 
-            this.Alt2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Alt2.BackColor = System.Drawing.Color.Black;
-            this.Alt2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Alt2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Alt2.ForeColor = System.Drawing.Color.White;
-            this.Alt2.Location = new System.Drawing.Point(476, 184);
-            this.Alt2.Name = "Alt2";
-            this.Alt2.Size = new System.Drawing.Size(47, 37);
-            this.Alt2.TabIndex = 2;
-            this.Alt2.Text = "Alt";
-            this.Alt2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Alt2.UseVisualStyleBackColor = false;
-            this.Alt2.CheckedChanged += new System.EventHandler(this.Alt2_CheckedChanged);
-            // 
-            // Alt1
-            // 
-            this.Alt1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Alt1.BackColor = System.Drawing.Color.Black;
-            this.Alt1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Alt1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Alt1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Alt1.ForeColor = System.Drawing.Color.White;
-            this.Alt1.Location = new System.Drawing.Point(158, 184);
-            this.Alt1.Name = "Alt1";
-            this.Alt1.Size = new System.Drawing.Size(47, 37);
-            this.Alt1.TabIndex = 2;
-            this.Alt1.Text = "Alt";
-            this.Alt1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Alt1.UseVisualStyleBackColor = false;
-            this.Alt1.CheckedChanged += new System.EventHandler(this.Alt1_CheckedChanged);
+            this.Fade.Click += new System.EventHandler(this.Any_Click);
             // 
             // Fn
             // 
@@ -1214,64 +1213,96 @@
             this.Fn.UseVisualStyleBackColor = false;
             this.Fn.CheckedChanged += new System.EventHandler(this.Fn_CheckedChanged);
             // 
-            // Shift1
+            // LShift
             // 
-            this.Shift1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Shift1.BackColor = System.Drawing.Color.Black;
-            this.Shift1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Shift1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Shift1.ForeColor = System.Drawing.Color.White;
-            this.Shift1.Location = new System.Drawing.Point(-1, 142);
-            this.Shift1.Name = "Shift1";
-            this.Shift1.Size = new System.Drawing.Size(100, 36);
-            this.Shift1.TabIndex = 2;
-            this.Shift1.Text = "Shift";
-            this.Shift1.UseVisualStyleBackColor = false;
-            this.Shift1.CheckedChanged += new System.EventHandler(this.Shift1_CheckedChanged);
+            this.LShift.BackColor = System.Drawing.Color.Black;
+            this.LShift.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LShift.Location = new System.Drawing.Point(-1, 141);
+            this.LShift.Name = "LShift";
+            this.LShift.Size = new System.Drawing.Size(100, 37);
+            this.LShift.TabIndex = 4;
+            this.LShift.Tag = "160";
+            this.LShift.Text = "Shift";
+            this.LShift.UseVisualStyleBackColor = false;
+            this.LShift.Click += new System.EventHandler(this.Any_Click);
             // 
-            // Shift2
+            // Caps
             // 
-            this.Shift2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Shift2.BackColor = System.Drawing.Color.Black;
-            this.Shift2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Shift2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Shift2.ForeColor = System.Drawing.Color.White;
-            this.Shift2.Location = new System.Drawing.Point(688, 141);
-            this.Shift2.Name = "Shift2";
-            this.Shift2.Size = new System.Drawing.Size(100, 38);
-            this.Shift2.TabIndex = 2;
-            this.Shift2.Text = "Shift";
-            this.Shift2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Shift2.UseVisualStyleBackColor = false;
-            this.Shift2.CheckedChanged += new System.EventHandler(this.Shift2_CheckedChanged);
+            this.Caps.BackColor = System.Drawing.Color.Black;
+            this.Caps.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Caps.Location = new System.Drawing.Point(-1, 100);
+            this.Caps.Name = "Caps";
+            this.Caps.Size = new System.Drawing.Size(65, 36);
+            this.Caps.TabIndex = 5;
+            this.Caps.Tag = "20";
+            this.Caps.Text = "Caps";
+            this.Caps.UseVisualStyleBackColor = false;
+            this.Caps.Click += new System.EventHandler(this.Any_Click);
             // 
-            // Ctrl2
+            // LCtrl
             // 
-            this.Ctrl2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Ctrl2.BackColor = System.Drawing.Color.Black;
-            this.Ctrl2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Ctrl2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ctrl2.Location = new System.Drawing.Point(529, 184);
-            this.Ctrl2.Name = "Ctrl2";
-            this.Ctrl2.Size = new System.Drawing.Size(47, 36);
-            this.Ctrl2.TabIndex = 3;
-            this.Ctrl2.Text = "Ctrl";
-            this.Ctrl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Ctrl2.UseVisualStyleBackColor = false;
+            this.LCtrl.BackColor = System.Drawing.Color.Black;
+            this.LCtrl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCtrl.Location = new System.Drawing.Point(-1, 185);
+            this.LCtrl.Name = "LCtrl";
+            this.LCtrl.Size = new System.Drawing.Size(47, 35);
+            this.LCtrl.TabIndex = 6;
+            this.LCtrl.Tag = "162";
+            this.LCtrl.Text = "Ctrl";
+            this.LCtrl.UseVisualStyleBackColor = false;
+            this.LCtrl.Click += new System.EventHandler(this.Any_Click);
             // 
-            // Ctrl1
+            // LAlt
             // 
-            this.Ctrl1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.Ctrl1.BackColor = System.Drawing.Color.Black;
-            this.Ctrl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Ctrl1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ctrl1.Location = new System.Drawing.Point(-1, 185);
-            this.Ctrl1.Name = "Ctrl1";
-            this.Ctrl1.Size = new System.Drawing.Size(47, 36);
-            this.Ctrl1.TabIndex = 3;
-            this.Ctrl1.Text = "Ctrl";
-            this.Ctrl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Ctrl1.UseVisualStyleBackColor = false;
+            this.LAlt.BackColor = System.Drawing.Color.Black;
+            this.LAlt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LAlt.Location = new System.Drawing.Point(158, 185);
+            this.LAlt.Name = "LAlt";
+            this.LAlt.Size = new System.Drawing.Size(47, 35);
+            this.LAlt.TabIndex = 7;
+            this.LAlt.Tag = "164";
+            this.LAlt.Text = "Alt";
+            this.LAlt.UseVisualStyleBackColor = false;
+            this.LAlt.Click += new System.EventHandler(this.Any_Click);
+            // 
+            // RAlt
+            // 
+            this.RAlt.BackColor = System.Drawing.Color.Black;
+            this.RAlt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RAlt.Location = new System.Drawing.Point(476, 185);
+            this.RAlt.Name = "RAlt";
+            this.RAlt.Size = new System.Drawing.Size(47, 35);
+            this.RAlt.TabIndex = 8;
+            this.RAlt.Tag = "165";
+            this.RAlt.Text = "Alt";
+            this.RAlt.UseVisualStyleBackColor = false;
+            this.RAlt.Click += new System.EventHandler(this.Any_Click);
+            // 
+            // RCtrl
+            // 
+            this.RCtrl.BackColor = System.Drawing.Color.Black;
+            this.RCtrl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RCtrl.Location = new System.Drawing.Point(529, 184);
+            this.RCtrl.Name = "RCtrl";
+            this.RCtrl.Size = new System.Drawing.Size(47, 37);
+            this.RCtrl.TabIndex = 9;
+            this.RCtrl.Tag = "163";
+            this.RCtrl.Text = "Ctrl";
+            this.RCtrl.UseVisualStyleBackColor = false;
+            this.RCtrl.Click += new System.EventHandler(this.Any_Click);
+            // 
+            // RShift
+            // 
+            this.RShift.BackColor = System.Drawing.Color.Black;
+            this.RShift.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RShift.Location = new System.Drawing.Point(688, 141);
+            this.RShift.Name = "RShift";
+            this.RShift.Size = new System.Drawing.Size(100, 37);
+            this.RShift.TabIndex = 10;
+            this.RShift.Tag = "161";
+            this.RShift.Text = "Shift";
+            this.RShift.UseVisualStyleBackColor = false;
+            this.RShift.Click += new System.EventHandler(this.Any_Click);
             // 
             // Form1
             // 
@@ -1280,14 +1311,14 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(979, 222);
-            this.Controls.Add(this.Ctrl1);
-            this.Controls.Add(this.Ctrl2);
-            this.Controls.Add(this.Shift2);
-            this.Controls.Add(this.Shift1);
-            this.Controls.Add(this.Fn);
-            this.Controls.Add(this.Alt1);
-            this.Controls.Add(this.Alt2);
+            this.Controls.Add(this.RShift);
+            this.Controls.Add(this.RCtrl);
+            this.Controls.Add(this.RAlt);
+            this.Controls.Add(this.LAlt);
+            this.Controls.Add(this.LCtrl);
             this.Controls.Add(this.Caps);
+            this.Controls.Add(this.LShift);
+            this.Controls.Add(this.Fn);
             this.Controls.Add(this.Fade);
             this.Controls.Add(this.Dock_Button);
             this.Controls.Add(this.MvDn);
@@ -1458,14 +1489,14 @@
         private System.Windows.Forms.Button MvDn;
         private System.Windows.Forms.Button Dock_Button;
         private System.Windows.Forms.Button Fade;
-        private System.Windows.Forms.CheckBox Caps;
-        private System.Windows.Forms.CheckBox Alt2;
-        private System.Windows.Forms.CheckBox Alt1;
         private System.Windows.Forms.CheckBox Fn;
-        private System.Windows.Forms.CheckBox Shift1;
-        private System.Windows.Forms.CheckBox Shift2;
-        private System.Windows.Forms.CheckBox Ctrl2;
-        private System.Windows.Forms.CheckBox Ctrl1;
+        private System.Windows.Forms.Button LShift;
+        private System.Windows.Forms.Button Caps;
+        private System.Windows.Forms.Button LCtrl;
+        private System.Windows.Forms.Button LAlt;
+        private System.Windows.Forms.Button RAlt;
+        private System.Windows.Forms.Button RCtrl;
+        private System.Windows.Forms.Button RShift;
     }
 }
 

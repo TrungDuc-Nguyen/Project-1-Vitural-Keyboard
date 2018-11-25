@@ -25,8 +25,8 @@ namespace On_Screen_KeyBoard
                      param.ExStyle = 0x08000000; // gọi hàm Enable windows -> cấm focus vào app hiện tại
                  return param;
              }
-         }       
-        
+         }
+      
         //private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
@@ -56,61 +56,155 @@ namespace On_Screen_KeyBoard
              SendKeys.Send("111");
          }
      }*/
-     
+        
         public Form1()
         {
             InitializeComponent();       
         }
 
+        /// <summary>
+        /// Hàm xử lý sự kiện khi nhấn button bắt kỳ
+        /// </summary>
+        /// <param name="sender">Lấy properties của button vừa nhấn</param>
+        /// <param name="e"></param>
+         void Any_Click(object sender, EventArgs e)
+        {           
+            Button btn = sender as Button;  // Gán 1 button bất kì vừa nhấn cho biến btn
+            int a = Convert.ToInt32(btn.Tag);   // Chuyển properties của button sang kiểu int
+            string x = KeycodeToChar(a);    // Gán keycode của button cho biến x bằng hàm KeycodeToChar
+            SendKeys.Send(x);
+            logger.Info(x);
+            /*if (a == Convert.ToInt32(Keys.LShiftKey) || a == Convert.ToInt32(Keys.RShiftKey))
+            {
+                SendKeys.Send(x);
+                Shift_On();
+                x = null;
+            }
+            else
+            {
+                SendKeys.Send(x);
+            }*/
+        }
 
         /// <summary>
-        /// các hàm bool dùng để xử lý sự kiện với các phím Shift, Capslock, Fn
+        /// Hàm kiểm tra và trả về giá trị của keycode của button vừa nhấn
         /// </summary>
-        bool Shift_Button = false;
-        bool Caps_Button = false;
-        bool Fn_Button = false;
-
-        #region Form
-       
-        private void Form1_Deactivate(object sender, EventArgs e)
+        /// <param name="KeyCode">Giá trị key đưa vào để chuyển sang keycode dùng cho lệnh Send</param>
+        /// <returns></returns>
+        public String KeycodeToChar(int KeyCode)
         {
+            Keys key = (Keys)KeyCode;
 
+            switch (key)
+            {
+                #region key
+                case Keys.Q:
+                    return "q";
+                case Keys.W:
+                    return "w";
+                case Keys.E:
+                    return "e";
+                case Keys.R:
+                    return "r";
+                case Keys.T:
+                    return "t";
+                case Keys.Y:
+                    return "y";
+                case Keys.U:
+                    return "u";
+                case Keys.I:
+                    return "i";
+                case Keys.O:
+                    return "o";
+                case Keys.P:
+                    return "p";
+                case Keys.A:
+                    return "a";
+                case Keys.S:
+                    return "s";
+                case Keys.D:
+                    return "d";
+                case Keys.F:
+                    return "f";
+                case Keys.G:
+                    return "g";
+                case Keys.H:
+                    return "h";
+                case Keys.J:
+                    return "j";
+                case Keys.K:
+                    return "k";
+                case Keys.L:
+                    return "l";
+                case Keys.Z:
+                    return "z";
+                case Keys.X:
+                    return "x";
+                case Keys.C:
+                    return "c";
+                case Keys.V:
+                    return "v";
+                case Keys.B:
+                    return "b";
+                case Keys.N:
+                    return "n";
+                case Keys.M:
+                    return "m";
+                case Keys.Escape:
+                    return "{ESC}";
+                case Keys.Tab:
+                    return "{TAB}";
+                case Keys.RWin:
+                    return "^{ESC}";
+                case Keys.Space:
+                    return " ";
+                case Keys.Back:
+                    return "{BS}";
+                case Keys.Delete:
+                    return "{DEL}";
+                case Keys.Enter:
+                    return "{ENTER}";
+                case Keys.Up:
+                    return "{UP}";
+                case Keys.Down:
+                    return "{DOWN}";
+                case Keys.Left:
+                    return "{LEFT}";
+                case Keys.Right:
+                    return "{RIGHT}";
+                case Keys.Home:
+                    return "{HOME}";
+                case Keys.End:
+                    return "{END}";
+                case Keys.Insert:
+                    return "{INSERT}";
+                case Keys.PrintScreen:
+                    return "{PRTSC}";
+                case Keys.PageDown:
+                    return "{PGDN}";
+                case Keys.PageUp:
+                    return "{PGUP}";
+                case Keys.Scroll:
+                    return "{SCROLLLOCK}";
+                case Keys.Help:
+                    return "{HELP}";
+                case Keys.LShiftKey:
+                    return "+";
+                case Keys.RShiftKey:
+                    return "+";
+                case Keys.LControlKey:
+                    return "-";
+                case Keys.RControlKey:
+                    return "-";
+                case Keys.LMenu:
+                    return "%";
+                case Keys.RMenu:
+                    return "%";
+                default:
+                    return key.ToString();
+#endregion
+            }
         }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
-
-        private void Form1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
-        {
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
-        #endregion
-
         /// <summary>
         /// hàm xử lý sự kiện khi nhấn phím capslock
         /// </summary>
@@ -118,24 +212,12 @@ namespace On_Screen_KeyBoard
         /// <param name="e"></param>
         #region Code cho phím CapsLock
 
-        private void Caps_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Caps_Button)
-            {
-                Caps_Off();
-            }
-            else
-            {
-                Caps_On();
-            }
-        }
-
         private void Caps_On()
         {
             /*Caps.BackColor = Color.Yellow;
             Caps.ForeColor = Color.Black;
             Caps.Text = "CAPS";*/
-            Caps_Button = true;
+           // Caps_Button = true;
             q.Text = "Q";
             w.Text = "W";
             e.Text = "E";
@@ -169,7 +251,7 @@ namespace On_Screen_KeyBoard
             /*Caps.BackColor = Color.Black;
             Caps.ForeColor = Color.White;
             Caps.Text = "Caps";*/
-            Caps_Button = false;
+           // Caps_Button = false;
             q.Text = "q";
             w.Text = "w";
             e.Text = "e";
@@ -206,35 +288,6 @@ namespace On_Screen_KeyBoard
         /// <param name="e"></param>
         #region Code cho phím Shift
 
-        private void Shift1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Shift_Button)
-            {
-                Shift_Off();
-            }
-            else
-            {
-                Shift_On();
-            }
-        }
-
-        /// <summary>
-        ///        SỰ kiện nut shift phải được bấm
-        /// </summary>
-        /// <param name="sender">đối tượng phát sinh sự kiện</param>
-        /// <param name="e">tham số sự kiện</param>
-        private void Shift2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Shift_Button)
-            {
-                Shift_Off();
-            }
-            else
-            {
-                Shift_On();
-            }
-        }
-
         private void Shift_On()
         {
             /*Shift1.BackColor = Color.Yellow;
@@ -243,7 +296,7 @@ namespace On_Screen_KeyBoard
             Shift2.BackColor = Color.Yellow;
             Shift2.ForeColor = Color.Black;
             Shift2.Text = "SHIFT";*/
-            Shift_Button = true;
+           // Shift_Button = true;
             q.Text = "Q";
             w.Text = "W";
             e.Text = "E";
@@ -295,13 +348,13 @@ namespace On_Screen_KeyBoard
 
         private void Shift_Off()
         {
-           /* Shift1.BackColor = Color.Black;
-            Shift1.ForeColor = Color.White;
-            Shift1.Text = "Shift";
-            Shift2.BackColor = Color.Black;
-            Shift2.ForeColor = Color.White;
-            Shift2.Text = "Shift";*/
-            Shift_Button = false;
+            /* Shift1.BackColor = Color.Black;
+             Shift1.ForeColor = Color.White;
+             Shift1.Text = "Shift";
+             Shift2.BackColor = Color.Black;
+             Shift2.ForeColor = Color.White;
+             Shift2.Text = "Shift";*/
+            //Shift_Button = false;
             q.Text = "q";
             w.Text = "w";
             e.Text = "e";
@@ -374,9 +427,9 @@ namespace On_Screen_KeyBoard
 
         private void Fn_On()
         {
-           /* Fn.BackColor = Color.Yellow;
-            Fn.ForeColor = Color.Black;
-            Fn.Text = "FN";*/
+            /* Fn.BackColor = Color.Yellow;
+             Fn.ForeColor = Color.Black;
+             Fn.Text = "FN";*/
             Fn_Button = true;
             one.Text = "F1";
             two.Text = "F2";
@@ -413,91 +466,50 @@ namespace On_Screen_KeyBoard
         }
         #endregion
 
+        /// <summary>
+        /// các hàm bool dùng để xử lý sự kiện với các phím Shift, Capslock, Fn
+        /// </summary>
+        //bool Shift_Button = false;
+        //bool Caps_Button = false;
+        bool Fn_Button = false;
 
-        // các hàm dùng Send để gửi phím đến app
-        private void Tab_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{TAB}");
-            logger.Info("TAB");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{ESC}");
-            logger.Info("ESC");
-        }
-
-        private void button73_Click(object sender, EventArgs e)
+        #region Form
+       
+        private void Form1_Deactivate(object sender, EventArgs e)
         {
 
         }
 
-        private void button79_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }
 
-        private void button85_Click(object sender, EventArgs e)
+        private void Form1_Shown(object sender, EventArgs e)
         {
-            SendKeys.Send("{Right}");
-            logger.Info("Right");
+          
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if(Fn.Checked)
-            {
-                SendKeys.Send("{F1}");
-                Fn.Checked = false;
-                logger.Info("F1");
-            }
-            else if(Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("!");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("!");
-            }
-            else
-            {
-                SendKeys.Send("1");
-                logger.Info("1");
-            }
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {         
         }
-        private void q_Click(object sender, EventArgs e)
-        {
-            if(Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("Q");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("Q");
-            }          
-            else 
-            {
-                SendKeys.Send("q");
-                logger.Info("q");
-            }
-
-        }
-
-        private void Console_Click(object sender, EventArgs e)
-        {
-           if(Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("{~}");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("~");
-            }
-           else
-            {
-                SendKeys.Send("`");
-                logger.Info("`");
-            }
-        }
-
  
+        private void Form1_Load(object sender, EventArgs e)
+        {
+        }
+        private void Form1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+        }
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {          
+        }
+
+        #endregion
+
         private void Alt1_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -508,962 +520,1040 @@ namespace On_Screen_KeyBoard
 
         }
 
-        private void Fade_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Dock_Click(object sender, EventArgs e)
-        {
+        // các hàm dùng Send để gửi phím đến app
+        /* private void Tab_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{TAB}");
+             logger.Info("TAB");
+         }
 
-        }
+         private void button1_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{ESC}");
+             logger.Info("ESC");
+         }
 
-        private void MvDn_Click(object sender, EventArgs e)
-        {
+         private void button73_Click(object sender, EventArgs e)
+         {
 
-        }
+         }
 
-        private void MvUp_Click(object sender, EventArgs e)
-        {
+         private void button79_Click(object sender, EventArgs e)
+         {
 
-        }
+         }
 
-        private void Nav_Click(object sender, EventArgs e)
-        {
-           
-        }
+         private void button85_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{Right}");
+             logger.Info("Right");
+         }
 
-        private void Help_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{HELP}");
-            logger.Info("HELP");
-        }
+         private void button3_Click(object sender, EventArgs e)
+         {
+             if(Fn.Checked)
+             {
+                 SendKeys.Send("{F1}");
+                 Fn.Checked = false;
+                 logger.Info("F1");
+             }
+             else if(Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("!");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("!");
+             }
+             else
+             {
+                 SendKeys.Send("1");
+                 logger.Info("1");
+             }
+         }
+         private void q_Click(object sender, EventArgs e)
+         {
 
-        private void ScrLk_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{SCROLLLOCK}");
-            logger.Info("SCROLLLOCK");
-        }
 
-        private void Pause_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{BREAK}");
-            logger.Info("BREAK");
-        }
+         }
 
-        private void PgDn_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{PGDN}");
-            logger.Info("PGDN");
-        }
-
-        private void PgUp_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{PGUP}");
-            logger.Info("PGUP");
-        }
-
-        private void Options_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PrtScn_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{PRTSC}");
-            logger.Info("PRTSC");
-        }
-
-        private void Insert_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{INSERT}");
-            logger.Info("INSERT");
-        }
-
-        private void End_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{END}");
-            logger.Info("END");
-        }
-
-        private void Home_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{HOME}");
-            logger.Info("HOME");
-        }
-
-        private void Del_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{DEL}");
-            logger.Info("DEL");
-        }
-
-        private void Back_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{BS}");
-            logger.Info("BACKSPACE");
-        }
-
-        private void App_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Enter_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{ENTER}");
-            logger.Info("ENTER");
-        }
-
-        private void Scars_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("|");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("|");
-            }
-            else
-            {
-                SendKeys.Send("\\");
-                logger.Info("\\");
-            }
-        }
-
-        private void Equal_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F12}");
-                Fn.Checked = false;
-                logger.Info("F12");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("{+}");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("+");
-            }
-            else
-            {
-                SendKeys.Send("=");
-                logger.Info("=");
-            }
-        }
-
-        private void CloseBracket_Click(object sender, EventArgs e)
-        {
+         private void Console_Click(object sender, EventArgs e)
+         {
             if(Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("}");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("}");
-            }
+             {
+                 SendKeys.Send("{~}");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("~");
+             }
             else
-            {
-                SendKeys.Send("]");
-                logger.Info("]");
-            }
-        }
+             {
+                 SendKeys.Send("`");
+                 logger.Info("`");
+             }
+         }
 
-        private void Dash_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F11}");
-                Fn.Checked = false;
-                logger.Info("F11");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("_");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("_");
-            }
-            else
-            {
-                SendKeys.Send("-");
-                logger.Info("-");
-            }
-        }
 
-        private void Down_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{DOWN}");
-            logger.Info("DOWN");
-        }
 
-        private void Up_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{UP}");
-            logger.Info("UP");
-        }
 
-        private void Quotes_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("\"");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("\"");
-            }
-            else
-            {
-                SendKeys.Send("\''");
-                logger.Info("\"");
-            }
-        }
+         private void Fade_Click(object sender, EventArgs e)
+         {
 
-        private void OpenBracket_Click(object sender, EventArgs e)
-        {
-            if(Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("{");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("{");
-            }
-            else
-            {
-                SendKeys.Send("[");
-                logger.Info("[");
-            }
-        }
+         }
 
-        private void ten_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F10}");
-                Fn.Checked = false;
-                logger.Info("F10");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("{)}");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("{)}");
-            }
-            else
-            {
-                SendKeys.Send("0");
-                logger.Info("0");
-            }
-        }
+         private void Dock_Click(object sender, EventArgs e)
+         {
 
-        private void Left_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("{Left}");
-            logger.Info("LEFT");
-        }
+         }
 
-        private void Question_Click(object sender, EventArgs e)
-        {
+         private void MvDn_Click(object sender, EventArgs e)
+         {
 
-            if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("?");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("?");
-            }
-            else
-            {
-                SendKeys.Send("/");
-                logger.Info("/");
-            }
-        }
+         }
 
-        private void Clon_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send(":");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info(":");
-            }
-            else
-            {
-                SendKeys.Send(";");
-                logger.Info(";");
-            }
-        }
+         private void MvUp_Click(object sender, EventArgs e)
+         {
 
-        private void p_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("P");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("P");
-            }
-            else
-            {
-                SendKeys.Send("p");
-                logger.Info("p");
-            }
-        }
+         }
 
-        private void nine_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F9}");
-                Fn.Checked = false;
-                logger.Info("F9");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("{(}");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("{(}");
-            }
-            else
-            {
-                SendKeys.Send("9");
-                logger.Info("9");
-            }
-        }
+         private void Nav_Click(object sender, EventArgs e)
+         {
 
-        private void Bigger_Click(object sender, EventArgs e)
-        {
+         }
 
-            if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send(">");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info(">");
-            }
-            else
-            {
-                SendKeys.Send(".");
-                logger.Info(".");
-            }
-        }
+         private void Help_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{HELP}");
+             logger.Info("HELP");
+         }
 
-        private void l_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("L");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("L");
-            }
-            else
-            {
-                SendKeys.Send("l");
-                logger.Info("l");
-            }
-        }
+         private void ScrLk_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{SCROLLLOCK}");
+             logger.Info("SCROLLLOCK");
+         }
 
-        private void o_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("O");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("O");
-            }
-            else
-            {
-                SendKeys.Send("o");
-                logger.Info("o");
-            }
-        }
+         private void Pause_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{BREAK}");
+             logger.Info("BREAK");
+         }
 
-        private void eight_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F8}");
-                Fn.Checked = false;
-                logger.Info("F8");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("*");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("*");
-            }
-            else
-            {
-                SendKeys.Send("8");
-                logger.Info("8");
-            }
-        }
+         private void PgDn_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{PGDN}");
+             logger.Info("PGDN");
+         }
 
-        private void Smaller_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("<");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("<");
-            }
-            else
-            {
-                SendKeys.Send(",");
-                logger.Info(",");
-            }
-        }
+         private void PgUp_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{PGUP}");
+             logger.Info("PGUP");
+         }
 
-        private void k_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("K");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("K");
-            }
-            else
-            {
-                SendKeys.Send("k");
-                logger.Info("k");
-            }
-        }
+         private void Options_Click(object sender, EventArgs e)
+         {
 
-        private void i_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("I");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("I");
-            }
-            else
-            {
-                SendKeys.Send("i");
-                logger.Info("i");
-            }
-        }
+         }
 
-        private void seven_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F7}");
-                Fn.Checked = false;
-                logger.Info("F7");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("&");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("&");
-            }
-            else
-            {
-                SendKeys.Send("7");
-                logger.Info("7");
-            }
-        }
+         private void PrtScn_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{PRTSC}");
+             logger.Info("PRTSC");
+         }
 
-        private void m_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("M");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("M");
-            }
-            else
-            {
-                SendKeys.Send("m");
-                logger.Info("m");
-            }
-        }
+         private void Insert_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{INSERT}");
+             logger.Info("INSERT");
+         }
 
-        private void j_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("J");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("J");
-            }
-            else
-            {
-                SendKeys.Send("j");
-                logger.Info("j");
-            }
-        }
+         private void End_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{END}");
+             logger.Info("END");
+         }
 
-        private void u_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("U");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("U");
-            }
-            else
-            {
-                SendKeys.Send("u");
-                logger.Info("u");
-            }
-        }
+         private void Home_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{HOME}");
+             logger.Info("HOME");
+         }
 
-        private void six_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F6}");
-                Fn.Checked = false;
-                logger.Info("F6");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("{^}");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("{^}");
-            }
-            else
-            {
-                SendKeys.Send("6");
-                logger.Info("6");
-            }
-        }
+         private void Del_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{DEL}");
+             logger.Info("DEL");
+         }
 
-        private void n_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("N");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("N");
-            }
-            else
-            {
-                SendKeys.Send("n");
-                logger.Info("n");
-            }
-        }
+         private void Back_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{BS}");
+             logger.Info("BACKSPACE");
+         }
 
-        private void h_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("H");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("H");
-            }
-            else
-            {
-                SendKeys.Send("h");
-                logger.Info("h");
-            }
-        }
+         private void App_Click(object sender, EventArgs e)
+         {
 
-        private void y_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("Y");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("Y");
-            }
-            else
-            {
-                SendKeys.Send("y");
-                logger.Info("y");
-            }
-        }
+         }
 
-        private void five_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F5}");
-                Fn.Checked = false;
-                logger.Info("F5");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("{%}");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("{%}");
-            }
-            else
-            {
-                SendKeys.Send("5");
-                logger.Info("5");
-            }
-        }
+         private void Enter_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{ENTER}");
+             logger.Info("ENTER");
+         }
 
-        private void b_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("B");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("B");
-            }
-            else
-            {
-                SendKeys.Send("b");
-                logger.Info("b");
-            }
-        }
+         private void Scars_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("|");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("|");
+             }
+             else
+             {
+                 SendKeys.Send("\\");
+                 logger.Info("\\");
+             }
+         }
 
-        private void g_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("G");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("G");
-            }
-            else
-            {
-                SendKeys.Send("g");
-                logger.Info("g");
-            }
-        }
+         private void Equal_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F12}");
+                 Fn.Checked = false;
+                 logger.Info("F12");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("{+}");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("+");
+             }
+             else
+             {
+                 SendKeys.Send("=");
+                 logger.Info("=");
+             }
+         }
 
-        private void t_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("T");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("T");
-            }
-            else
-            {
-                SendKeys.Send("t");
-                logger.Info("t");
-            }
-        }
+         private void CloseBracket_Click(object sender, EventArgs e)
+         {
+             if(Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("}");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("}");
+             }
+             else
+             {
+                 SendKeys.Send("]");
+                 logger.Info("]");
+             }
+         }
 
-        private void four_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F4}");
-                Fn.Checked = false;
-                logger.Info("F4");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("$");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("$");
-            }
-            else
-            {
-                SendKeys.Send("4");
-                logger.Info("4");
-            }
-        }
+         private void Dash_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F11}");
+                 Fn.Checked = false;
+                 logger.Info("F11");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("_");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("_");
+             }
+             else
+             {
+                 SendKeys.Send("-");
+                 logger.Info("-");
+             }
+         }
 
-        private void Space_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send(" ");
-            logger.Info("SPACE");
-        }
+         private void Down_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{DOWN}");
+             logger.Info("DOWN");
+         }
 
-        private void v_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("V");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("V");
-            }
-            else if(Ctrl1.Checked || Ctrl2.Checked)
-            {
-                SendKeys.Send("^v");
-                Ctrl1.Checked = false;
-                Ctrl2.Checked = false;
-                logger.Info("PASTE");
-            }
-            else
-            {
-                SendKeys.Send("v");
-                logger.Info("v");
-            }
-        }
+         private void Up_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{UP}");
+             logger.Info("UP");
+         }
 
-        private void f_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("F");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("F");
-            }
-            else if(Ctrl1.Checked || Ctrl2.Checked)
-            {
-                SendKeys.Send("^(f)");
-                logger.Info("FIND");
-            }
-            else
-            {
-                SendKeys.Send("f");
-                logger.Info("f");
-            }
-        }
+         private void Quotes_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("\"");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("\"");
+             }
+             else
+             {
+                 SendKeys.Send("\''");
+                 logger.Info("\"");
+             }
+         }
 
-        private void r_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("R");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("R");
-            }
-            else
-            {
-                SendKeys.Send("r");
-                logger.Info("r");
-            }
-        }
+         private void OpenBracket_Click(object sender, EventArgs e)
+         {
+             if(Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("{");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("{");
+             }
+             else
+             {
+                 SendKeys.Send("[");
+                 logger.Info("[");
+             }
+         }
 
-        private void three_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F3}");
-                Fn.Checked = false;
-                logger.Info("F3");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("#");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("#");
-            }
-            else
-            {
-                SendKeys.Send("3");
-                logger.Info("3");
-            }
-        }
+         private void ten_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F10}");
+                 Fn.Checked = false;
+                 logger.Info("F10");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("{)}");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("{)}");
+             }
+             else
+             {
+                 SendKeys.Send("0");
+                 logger.Info("0");
+             }
+         }
 
-        private void c_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("C");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("C");
-            }
-            else if(Ctrl1.Checked || Ctrl2.Checked)
-            {
-                SendKeys.Send("^c");
-                Ctrl1.Checked = false;
-                Ctrl2.Checked = false;
-                logger.Info("COPPY");
-            }
-            else
-            {
-                SendKeys.Send("c");
-                logger.Info("c");
-            }
-        }
+         private void Left_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("{Left}");
+             logger.Info("LEFT");
+         }
 
-        private void d_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("D");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("D");
-            }
-            else if(Ctrl1.Checked || Ctrl2.Checked)
-            {
-                SendKeys.Send("^(d)");
-                Ctrl1.Checked = false;
-                Ctrl2.Checked = false;
-                logger.Info("DELETE");
-            }
-            else
-            {
-                SendKeys.Send("d");
-                logger.Info("d");
-            }
-        }
+         private void Question_Click(object sender, EventArgs e)
+         {
 
-        private void e_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("E");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("E");
-            }
-            else
-            {
-                SendKeys.Send("e");
-                logger.Info("e");
-            }
-        }
+             if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("?");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("?");
+             }
+             else
+             {
+                 SendKeys.Send("/");
+                 logger.Info("/");
+             }
+         }
 
-        private void two_Click(object sender, EventArgs e)
-        {
-            if (Fn.Checked)
-            {
-                SendKeys.Send("{F2}");
-                Fn.Checked = false;
-                logger.Info("F2");
-            }
-            else if (Shift1.Checked || Shift2.Checked)
-            {
-                SendKeys.Send("@");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("@");
-            }
-            else
-            {
-                SendKeys.Send("2");
-                logger.Info("2");
-            }
-        }
+         private void Clon_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send(":");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info(":");
+             }
+             else
+             {
+                 SendKeys.Send(";");
+                 logger.Info(";");
+             }
+         }
 
-        private void Win_Click(object sender, EventArgs e)
-        {
-            SendKeys.Send("^({ESC})");
-            logger.Info("WINDOWS");
-        }
+         private void p_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("P");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("P");
+             }
+             else
+             {
+                 SendKeys.Send("p");
+                 logger.Info("p");
+             }
+         }
 
-        private void x_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("X");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("X");
-            }
-            else if(Ctrl1.Checked || Ctrl2.Checked)
-            {
-                SendKeys.Send("^x");
-                Ctrl1.Checked = false;
-                Ctrl2.Checked = false;
-                logger.Info("CUT");
-            }
-            else
-            {
-                SendKeys.Send("x");
-                logger.Info("x");
-            }
-        }
+         private void nine_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F9}");
+                 Fn.Checked = false;
+                 logger.Info("F9");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("{(}");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("{(}");
+             }
+             else
+             {
+                 SendKeys.Send("9");
+                 logger.Info("9");
+             }
+         }
 
-        private void s_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("S");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("S");
-            }
-            else
-            {
-                SendKeys.Send("s");
-                logger.Info("s");
-            }
-        }
+         private void Bigger_Click(object sender, EventArgs e)
+         {
 
-        private void w_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("W");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("W");
-            }
-            else
-            {
-                SendKeys.Send("w");
-                logger.Info("w");
-            }
-        }
+             if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send(">");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info(">");
+             }
+             else
+             {
+                 SendKeys.Send(".");
+                 logger.Info(".");
+             }
+         }
 
-        private void z_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("Z");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("z");
-            }
-            else if(Ctrl1.Checked || Ctrl2.Checked)
-            {
-                SendKeys.Send("^z");
-                Ctrl1.Checked = false;
-                Ctrl2.Checked = false;
-                logger.Info("UNDO");
-            }
-            else
-            {
-                SendKeys.Send("z");
-                logger.Info("z");
-            }
-        }
+         private void l_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("L");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("L");
+             }
+             else
+             {
+                 SendKeys.Send("l");
+                 logger.Info("l");
+             }
+         }
 
-        private void a_Click(object sender, EventArgs e)
-        {
-            if (Shift1.Checked || Shift2.Checked || Caps.Checked)
-            {
-                SendKeys.Send("A");
-                Shift1.Checked = false;
-                Shift2.Checked = false;
-                logger.Info("A");
-            }
-            else if(Ctrl1.Checked || Ctrl2.Checked)
-            {
-                SendKeys.Send("^a");
-                Ctrl1.Checked = false;
-                Ctrl2.Checked = false;
-                logger.Info("BLACKENED");
-            }
-            else
-            {
-                SendKeys.Send("a");
-                logger.Info("a");
-            }
-        }
+         private void o_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("O");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("O");
+             }
+             else
+             {
+                 SendKeys.Send("o");
+                 logger.Info("o");
+             }
+         }
 
-        
+         private void eight_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F8}");
+                 Fn.Checked = false;
+                 logger.Info("F8");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("*");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("*");
+             }
+             else
+             {
+                 SendKeys.Send("8");
+                 logger.Info("8");
+             }
+         }
+
+         private void Smaller_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("<");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("<");
+             }
+             else
+             {
+                 SendKeys.Send(",");
+                 logger.Info(",");
+             }
+         }
+
+         private void k_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("K");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("K");
+             }
+             else
+             {
+                 SendKeys.Send("k");
+                 logger.Info("k");
+             }
+         }
+
+         private void i_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("I");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("I");
+             }
+             else
+             {
+                 SendKeys.Send("i");
+                 logger.Info("i");
+             }
+         }
+
+         private void seven_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F7}");
+                 Fn.Checked = false;
+                 logger.Info("F7");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("&");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("&");
+             }
+             else
+             {
+                 SendKeys.Send("7");
+                 logger.Info("7");
+             }
+         }
+
+         private void m_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("M");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("M");
+             }
+             else
+             {
+                 SendKeys.Send("m");
+                 logger.Info("m");
+             }
+         }
+
+         private void j_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("J");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("J");
+             }
+             else
+             {
+                 SendKeys.Send("j");
+                 logger.Info("j");
+             }
+         }
+
+         private void u_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("U");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("U");
+             }
+             else
+             {
+                 SendKeys.Send("u");
+                 logger.Info("u");
+             }
+         }
+
+         private void six_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F6}");
+                 Fn.Checked = false;
+                 logger.Info("F6");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("{^}");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("{^}");
+             }
+             else
+             {
+                 SendKeys.Send("6");
+                 logger.Info("6");
+             }
+         }
+
+         private void n_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("N");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("N");
+             }
+             else
+             {
+                 SendKeys.Send("n");
+                 logger.Info("n");
+             }
+         }
+
+         private void h_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("H");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("H");
+             }
+             else
+             {
+                 SendKeys.Send("h");
+                 logger.Info("h");
+             }
+         }
+
+         private void y_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("Y");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("Y");
+             }
+             else
+             {
+                 SendKeys.Send("y");
+                 logger.Info("y");
+             }
+         }
+
+         private void five_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F5}");
+                 Fn.Checked = false;
+                 logger.Info("F5");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("{%}");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("{%}");
+             }
+             else
+             {
+                 SendKeys.Send("5");
+                 logger.Info("5");
+             }
+         }
+
+         private void b_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("B");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("B");
+             }
+             else
+             {
+                 SendKeys.Send("b");
+                 logger.Info("b");
+             }
+         }
+
+         private void g_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("G");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("G");
+             }
+             else
+             {
+                 SendKeys.Send("g");
+                 logger.Info("g");
+             }
+         }
+
+         private void t_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("T");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("T");
+             }
+             else
+             {
+                 SendKeys.Send("t");
+                 logger.Info("t");
+             }
+         }
+
+         private void four_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F4}");
+                 Fn.Checked = false;
+                 logger.Info("F4");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("$");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("$");
+             }
+             else
+             {
+                 SendKeys.Send("4");
+                 logger.Info("4");
+             }
+         }
+
+         private void Space_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send(" ");
+             logger.Info("SPACE");
+         }
+
+         private void v_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("V");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("V");
+             }
+             else if(Ctrl1.Checked || Ctrl2.Checked)
+             {
+                 SendKeys.Send("^v");
+                 Ctrl1.Checked = false;
+                 Ctrl2.Checked = false;
+                 logger.Info("PASTE");
+             }
+             else
+             {
+                 SendKeys.Send("v");
+                 logger.Info("v");
+             }
+         }
+
+         private void f_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("F");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("F");
+             }
+             else if(Ctrl1.Checked || Ctrl2.Checked)
+             {
+                 SendKeys.Send("^(f)");
+                 logger.Info("FIND");
+             }
+             else
+             {
+                 SendKeys.Send("f");
+                 logger.Info("f");
+             }
+         }
+
+         private void r_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("R");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("R");
+             }
+             else
+             {
+                 SendKeys.Send("r");
+                 logger.Info("r");
+             }
+         }
+
+         private void three_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F3}");
+                 Fn.Checked = false;
+                 logger.Info("F3");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("#");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("#");
+             }
+             else
+             {
+                 SendKeys.Send("3");
+                 logger.Info("3");
+             }
+         }
+
+         private void c_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("C");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("C");
+             }
+             else if(Ctrl1.Checked || Ctrl2.Checked)
+             {
+                 SendKeys.Send("^c");
+                 Ctrl1.Checked = false;
+                 Ctrl2.Checked = false;
+                 logger.Info("COPPY");
+             }
+             else
+             {
+                 SendKeys.Send("c");
+                 logger.Info("c");
+             }
+         }
+
+         private void d_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("D");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("D");
+             }
+             else if(Ctrl1.Checked || Ctrl2.Checked)
+             {
+                 SendKeys.Send("^(d)");
+                 Ctrl1.Checked = false;
+                 Ctrl2.Checked = false;
+                 logger.Info("DELETE");
+             }
+             else
+             {
+                 SendKeys.Send("d");
+                 logger.Info("d");
+             }
+         }
+
+         private void e_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("E");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("E");
+             }
+             else
+             {
+                 SendKeys.Send("e");
+                 logger.Info("e");
+             }
+         }
+
+         private void two_Click(object sender, EventArgs e)
+         {
+             if (Fn.Checked)
+             {
+                 SendKeys.Send("{F2}");
+                 Fn.Checked = false;
+                 logger.Info("F2");
+             }
+             else if (Shift1.Checked || Shift2.Checked)
+             {
+                 SendKeys.Send("@");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("@");
+             }
+             else
+             {
+                 SendKeys.Send("2");
+                 logger.Info("2");
+             }
+         }
+
+         private void Win_Click(object sender, EventArgs e)
+         {
+             SendKeys.Send("^({ESC})");
+             logger.Info("WINDOWS");
+         }
+
+         private void x_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("X");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("X");
+             }
+             else if(Ctrl1.Checked || Ctrl2.Checked)
+             {
+                 SendKeys.Send("^x");
+                 Ctrl1.Checked = false;
+                 Ctrl2.Checked = false;
+                 logger.Info("CUT");
+             }
+             else
+             {
+                 SendKeys.Send("x");
+                 logger.Info("x");
+             }
+         }
+
+         private void s_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("S");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("S");
+             }
+             else
+             {
+                 SendKeys.Send("s");
+                 logger.Info("s");
+             }
+         }
+
+         private void w_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("W");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("W");
+             }
+             else
+             {
+                 SendKeys.Send("w");
+                 logger.Info("w");
+             }
+         }
+
+         private void z_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("Z");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("z");
+             }
+             else if(Ctrl1.Checked || Ctrl2.Checked)
+             {
+                 SendKeys.Send("^z");
+                 Ctrl1.Checked = false;
+                 Ctrl2.Checked = false;
+                 logger.Info("UNDO");
+             }
+             else
+             {
+                 SendKeys.Send("z");
+                 logger.Info("z");
+             }
+         }
+
+         private void a_Click(object sender, EventArgs e)
+         {
+             if (Shift1.Checked || Shift2.Checked || Caps.Checked)
+             {
+                 SendKeys.Send("A");
+                 Shift1.Checked = false;
+                 Shift2.Checked = false;
+                 logger.Info("A");
+             }
+             else if(Ctrl1.Checked || Ctrl2.Checked)
+             {
+                 SendKeys.Send("^a");
+                 Ctrl1.Checked = false;
+                 Ctrl2.Checked = false;
+                 logger.Info("BLACKENED");
+             }
+             else
+             {
+                 SendKeys.Send("a");
+                 logger.Info("a");
+             }
+         }*/
     }
 }
