@@ -70,21 +70,35 @@ namespace On_Screen_KeyBoard
          void Any_Click(object sender, EventArgs e)
         {           
             Button btn = sender as Button;  // Gán 1 button bất kì vừa nhấn cho biến btn
-            int a = Convert.ToInt32(btn.Tag);   // Chuyển properties của button sang kiểu int
-            string x = KeycodeToChar(a);    // Gán keycode của button cho biến x bằng hàm KeycodeToChar
-            SendKeys.Send(x);
-            logger.Info(x);
-            /*if (a == Convert.ToInt32(Keys.LShiftKey) || a == Convert.ToInt32(Keys.RShiftKey))
-            {
+            int TagOfbtn = Convert.ToInt32(btn.Tag);   // Chuyển properties của button sang kiểu int
+            string CodeOfbtn = KeycodeToChar(TagOfbtn);    // Gán keycode của button cho biến x bằng hàm KeycodeToChar
+            //SendKeys.Send(CodeOfbtn);
+            //logger.Info(CodeOfbtn);
+
+            int ValueOfCaps = Convert.ToInt32(Keys.CapsLock);
+            int ValueOfShiftLeft = Convert.ToInt32(Keys.LShiftKey);
+            int ValueOfShiftRight = Convert.ToInt32(Keys.RShiftKey);
+            int ValueOfCtrlLeft = Convert.ToInt32(Keys.LControlKey);
+            int ValueOfCtrlRight = Convert.ToInt32(Keys.RControlKey);
+            if (TagOfbtn == ValueOfCaps)
+            {   
+                Caps_On();
+                string x = Is_Upper(CodeOfbtn);
                 SendKeys.Send(x);
-                Shift_On();
-                x = null;
             }
             else
-            {
-                SendKeys.Send(x);
-            }*/
+            {                
+                SendKeys.Send(CodeOfbtn);
+            }           
         }
+
+        /// <summary>
+        /// Hàm chuyển chuỗi hoa thành thường và thường thành hoa.
+        /// </summary>
+        /// <param name="chuoi"></param>
+        /// <returns></returns>
+        public string Is_Upper(string chuoi) => chuoi.ToUpper();
+        public string Is_Lower(string chuoi) => chuoi.ToLower();
 
         /// <summary>
         /// Hàm kiểm tra và trả về giá trị của keycode của button vừa nhấn
@@ -200,11 +214,36 @@ namespace On_Screen_KeyBoard
                     return "%";
                 case Keys.RMenu:
                     return "%";
+                case Keys.CapsLock:
+                    return "{CAPSLOCK}";
+                case Keys.Oem3:
+                    return "`";
+                case Keys.Oem1:
+                    return ";";
+                case Keys.Oemplus:
+                    return "=";
+                case Keys.Oemcomma:
+                    return ",";
+                case Keys.OemMinus:
+                    return "-";
+                case Keys.OemPeriod:
+                    return ".";
+                case Keys.Oem2:
+                    return "/";
+                case Keys.NumPad0:
+                    return "[";
+                case Keys.NumPad1:
+                    return "]";
+                case Keys.NumPad2:
+                    return "\\";
+                case Keys.NumPad3:
+                    return "'";
                 default:
                     return key.ToString();
 #endregion
             }
         }
+
         /// <summary>
         /// hàm xử lý sự kiện khi nhấn phím capslock
         /// </summary>
@@ -287,16 +326,13 @@ namespace On_Screen_KeyBoard
         /// <param name="sender"></param>
         /// <param name="e"></param>
         #region Code cho phím Shift
+        public void Shift_Event()
+        {
+
+        }
 
         private void Shift_On()
         {
-            /*Shift1.BackColor = Color.Yellow;
-            Shift1.ForeColor = Color.Black;
-            Shift1.Text = "SHIFT";
-            Shift2.BackColor = Color.Yellow;
-            Shift2.ForeColor = Color.Black;
-            Shift2.Text = "SHIFT";*/
-           // Shift_Button = true;
             q.Text = "Q";
             w.Text = "W";
             e.Text = "E";
@@ -348,13 +384,6 @@ namespace On_Screen_KeyBoard
 
         private void Shift_Off()
         {
-            /* Shift1.BackColor = Color.Black;
-             Shift1.ForeColor = Color.White;
-             Shift1.Text = "Shift";
-             Shift2.BackColor = Color.Black;
-             Shift2.ForeColor = Color.White;
-             Shift2.Text = "Shift";*/
-            //Shift_Button = false;
             q.Text = "q";
             w.Text = "w";
             e.Text = "e";
@@ -472,53 +501,6 @@ namespace On_Screen_KeyBoard
         //bool Shift_Button = false;
         //bool Caps_Button = false;
         bool Fn_Button = false;
-
-        #region Form
-       
-        private void Form1_Deactivate(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {         
-        }
- 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-        private void Form1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
-        {
-        }
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {          
-        }
-
-        #endregion
-
-        private void Alt1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Alt2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
