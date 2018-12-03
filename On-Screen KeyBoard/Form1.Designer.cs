@@ -139,7 +139,7 @@
             this.Console.Size = new System.Drawing.Size(47, 37);
             this.Console.TabIndex = 0;
             this.Console.Tag = "192";
-            this.Console.Text = "~ `";
+            this.Console.Text = "`";
             this.Console.UseVisualStyleBackColor = false;
             this.Console.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -215,7 +215,7 @@
             this.one.Size = new System.Drawing.Size(47, 37);
             this.one.TabIndex = 0;
             this.one.Tag = "49";
-            this.one.Text = "!\r\n1";
+            this.one.Text = "1";
             this.one.UseVisualStyleBackColor = false;
             this.one.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -290,7 +290,7 @@
             this.two.Size = new System.Drawing.Size(47, 37);
             this.two.TabIndex = 0;
             this.two.Tag = "50";
-            this.two.Text = "@\r\n2";
+            this.two.Text = "2";
             this.two.UseVisualStyleBackColor = false;
             this.two.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -350,7 +350,7 @@
             this.three.Size = new System.Drawing.Size(47, 37);
             this.three.TabIndex = 0;
             this.three.Tag = "51";
-            this.three.Text = "#\r\n3";
+            this.three.Text = "3";
             this.three.UseVisualStyleBackColor = false;
             this.three.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -425,7 +425,7 @@
             this.four.Size = new System.Drawing.Size(47, 37);
             this.four.TabIndex = 0;
             this.four.Tag = "52";
-            this.four.Text = "$\r\n4";
+            this.four.Text = "4";
             this.four.UseVisualStyleBackColor = false;
             this.four.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -485,7 +485,7 @@
             this.five.Size = new System.Drawing.Size(47, 37);
             this.five.TabIndex = 0;
             this.five.Tag = "53";
-            this.five.Text = "%\r\n5";
+            this.five.Text = "5";
             this.five.UseVisualStyleBackColor = false;
             this.five.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -545,7 +545,7 @@
             this.six.Size = new System.Drawing.Size(47, 37);
             this.six.TabIndex = 0;
             this.six.Tag = "54";
-            this.six.Text = "^\r\n6";
+            this.six.Text = "6";
             this.six.UseVisualStyleBackColor = false;
             this.six.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -605,7 +605,7 @@
             this.seven.Size = new System.Drawing.Size(47, 37);
             this.seven.TabIndex = 0;
             this.seven.Tag = "55";
-            this.seven.Text = "&\r\n7";
+            this.seven.Text = "7";
             this.seven.UseVisualStyleBackColor = false;
             this.seven.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -650,7 +650,7 @@
             this.Smaller.Size = new System.Drawing.Size(47, 37);
             this.Smaller.TabIndex = 0;
             this.Smaller.Tag = "188";
-            this.Smaller.Text = "<\r\n,";
+            this.Smaller.Text = ",";
             this.Smaller.UseVisualStyleBackColor = false;
             this.Smaller.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -665,7 +665,7 @@
             this.eight.Size = new System.Drawing.Size(47, 37);
             this.eight.TabIndex = 0;
             this.eight.Tag = "56";
-            this.eight.Text = "*\r\n8";
+            this.eight.Text = "8";
             this.eight.UseVisualStyleBackColor = false;
             this.eight.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -710,7 +710,7 @@
             this.Bigger.Size = new System.Drawing.Size(47, 37);
             this.Bigger.TabIndex = 0;
             this.Bigger.Tag = "190";
-            this.Bigger.Text = ">\r\n.";
+            this.Bigger.Text = ".";
             this.Bigger.UseVisualStyleBackColor = false;
             this.Bigger.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -725,7 +725,7 @@
             this.nine.Size = new System.Drawing.Size(47, 37);
             this.nine.TabIndex = 0;
             this.nine.Tag = "57";
-            this.nine.Text = "(\r\n9";
+            this.nine.Text = "9";
             this.nine.UseVisualStyleBackColor = false;
             this.nine.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -755,7 +755,7 @@
             this.Clon.Size = new System.Drawing.Size(47, 37);
             this.Clon.TabIndex = 0;
             this.Clon.Tag = "186";
-            this.Clon.Text = ":\r\n;";
+            this.Clon.Text = ";";
             this.Clon.UseVisualStyleBackColor = false;
             this.Clon.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -770,7 +770,7 @@
             this.Question.Size = new System.Drawing.Size(47, 37);
             this.Question.TabIndex = 0;
             this.Question.Tag = "191";
-            this.Question.Text = "?\r\n/";
+            this.Question.Text = "/";
             this.Question.UseVisualStyleBackColor = false;
             this.Question.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -800,7 +800,7 @@
             this.ten.Size = new System.Drawing.Size(47, 37);
             this.ten.TabIndex = 0;
             this.ten.Tag = "48";
-            this.ten.Text = ")\r\n0";
+            this.ten.Text = "0";
             this.ten.UseVisualStyleBackColor = false;
             this.ten.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -815,7 +815,7 @@
             this.OpenBracket.Size = new System.Drawing.Size(47, 37);
             this.OpenBracket.TabIndex = 0;
             this.OpenBracket.Tag = "96";
-            this.OpenBracket.Text = "{\r\n[";
+            this.OpenBracket.Text = "{\r\n";
             this.OpenBracket.UseVisualStyleBackColor = false;
             this.OpenBracket.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -830,7 +830,7 @@
             this.Quotes.Size = new System.Drawing.Size(47, 37);
             this.Quotes.TabIndex = 0;
             this.Quotes.Tag = "99";
-            this.Quotes.Text = "\"\r\n\'";
+            this.Quotes.Text = "\'";
             this.Quotes.UseVisualStyleBackColor = false;
             this.Quotes.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -875,7 +875,7 @@
             this.Dash.Size = new System.Drawing.Size(47, 37);
             this.Dash.TabIndex = 0;
             this.Dash.Tag = "189";
-            this.Dash.Text = "-\r\n_";
+            this.Dash.Text = "-";
             this.Dash.UseVisualStyleBackColor = false;
             this.Dash.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -890,7 +890,7 @@
             this.CloseBracket.Size = new System.Drawing.Size(47, 37);
             this.CloseBracket.TabIndex = 0;
             this.CloseBracket.Tag = "97";
-            this.CloseBracket.Text = "}\r\n]";
+            this.CloseBracket.Text = "}\r\n";
             this.CloseBracket.UseVisualStyleBackColor = false;
             this.CloseBracket.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -920,7 +920,7 @@
             this.Equal.Size = new System.Drawing.Size(47, 37);
             this.Equal.TabIndex = 0;
             this.Equal.Tag = "187";
-            this.Equal.Text = "+\r\n=";
+            this.Equal.Text = "=";
             this.Equal.UseVisualStyleBackColor = false;
             this.Equal.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -935,7 +935,7 @@
             this.Scars.Size = new System.Drawing.Size(47, 37);
             this.Scars.TabIndex = 0;
             this.Scars.Tag = "98";
-            this.Scars.Text = "|\r\n\\";
+            this.Scars.Text = "\\";
             this.Scars.UseVisualStyleBackColor = false;
             this.Scars.Click += new System.EventHandler(this.Any_Click);
             // 
