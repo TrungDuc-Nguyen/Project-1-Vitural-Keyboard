@@ -20,16 +20,31 @@ namespace On_Screen_KeyBoard
             this.sendkey1 = sendkey1;
             this.sendkey2 = sendkey2;
             this.sendkey3 = sendkey3;
-            myKeys.Add(this);
+            myKeys.Add(this); // Tự đăng ký bản thân và danh sách
         }
+        /// <summary>
+        /// Hàm trả về chuỗi SendKey1 là khi ấn Button bình thường
+        /// </summary>
+        /// <param name="mybutton">Button cần lấy giá trị SendKey tương ứng</param>
+        /// <returns></returns>
         public static string GetSendKey1(Button mybutton)
         {
             return myKeys.Find(keyset => keyset.name == mybutton.Text).sendkey1;
         }
+        /// <summary>
+        /// Hàm trả về chuỗi SendKey2 là khi ấn phím Shift
+        /// </summary>
+        /// <param name="mybutton"></param>
+        /// <returns></returns>
         public static string GetSendKey2(Button mybutton)
         {
             return myKeys.Find(keyset => keyset.name == mybutton.Text).sendkey2;
         }
+        /// <summary>
+        /// Hàm trả về chuỗi SendKey3 là khi ấn phím CapLock
+        /// </summary>
+        /// <param name="mybutton"></param>
+        /// <returns></returns>
         public static string GetSendKey3(Button mybutton)
         {
             return myKeys.Find(keyset => keyset.name == mybutton.Text).sendkey3;
