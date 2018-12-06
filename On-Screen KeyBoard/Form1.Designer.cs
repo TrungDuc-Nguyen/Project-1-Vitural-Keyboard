@@ -83,7 +83,7 @@
             this.Right_Button = new System.Windows.Forms.Button();
             this.Equal = new System.Windows.Forms.Button();
             this.Scars = new System.Windows.Forms.Button();
-            this.Enter_Button = new System.Windows.Forms.Button();
+            this.Enter = new System.Windows.Forms.Button();
             this.App = new System.Windows.Forms.Button();
             this.Back = new System.Windows.Forms.Button();
             this.Del = new System.Windows.Forms.Button();
@@ -103,13 +103,13 @@
             this.Dock_Button = new System.Windows.Forms.Button();
             this.Fade = new System.Windows.Forms.Button();
             this.Fn = new System.Windows.Forms.CheckBox();
-            this.LShift = new System.Windows.Forms.Button();
-            this.Caps = new System.Windows.Forms.Button();
-            this.LCtrl = new System.Windows.Forms.Button();
-            this.LAlt = new System.Windows.Forms.Button();
-            this.RAlt = new System.Windows.Forms.Button();
-            this.RCtrl = new System.Windows.Forms.Button();
-            this.RShift = new System.Windows.Forms.Button();
+            this.LShift = new System.Windows.Forms.CheckBox();
+            this.LCtrl = new System.Windows.Forms.CheckBox();
+            this.LAlt = new System.Windows.Forms.CheckBox();
+            this.RAlt = new System.Windows.Forms.CheckBox();
+            this.RCtrl = new System.Windows.Forms.CheckBox();
+            this.RShift = new System.Windows.Forms.CheckBox();
+            this.Caps = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Esc
@@ -139,7 +139,7 @@
             this.Console.Size = new System.Drawing.Size(47, 37);
             this.Console.TabIndex = 0;
             this.Console.Tag = "192";
-            this.Console.Text = "`";
+            this.Console.Text = "~ `";
             this.Console.UseVisualStyleBackColor = false;
             this.Console.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -215,7 +215,7 @@
             this.one.Size = new System.Drawing.Size(47, 37);
             this.one.TabIndex = 0;
             this.one.Tag = "49";
-            this.one.Text = "1";
+            this.one.Text = "!\r\n1";
             this.one.UseVisualStyleBackColor = false;
             this.one.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -290,7 +290,7 @@
             this.two.Size = new System.Drawing.Size(47, 37);
             this.two.TabIndex = 0;
             this.two.Tag = "50";
-            this.two.Text = "2";
+            this.two.Text = "@\r\n2";
             this.two.UseVisualStyleBackColor = false;
             this.two.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -350,7 +350,7 @@
             this.three.Size = new System.Drawing.Size(47, 37);
             this.three.TabIndex = 0;
             this.three.Tag = "51";
-            this.three.Text = "3";
+            this.three.Text = "#\r\n3";
             this.three.UseVisualStyleBackColor = false;
             this.three.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -425,7 +425,7 @@
             this.four.Size = new System.Drawing.Size(47, 37);
             this.four.TabIndex = 0;
             this.four.Tag = "52";
-            this.four.Text = "4";
+            this.four.Text = "$\r\n4";
             this.four.UseVisualStyleBackColor = false;
             this.four.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -485,7 +485,7 @@
             this.five.Size = new System.Drawing.Size(47, 37);
             this.five.TabIndex = 0;
             this.five.Tag = "53";
-            this.five.Text = "5";
+            this.five.Text = "%\r\n5";
             this.five.UseVisualStyleBackColor = false;
             this.five.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -545,7 +545,7 @@
             this.six.Size = new System.Drawing.Size(47, 37);
             this.six.TabIndex = 0;
             this.six.Tag = "54";
-            this.six.Text = "6";
+            this.six.Text = "^\r\n6";
             this.six.UseVisualStyleBackColor = false;
             this.six.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -605,7 +605,7 @@
             this.seven.Size = new System.Drawing.Size(47, 37);
             this.seven.TabIndex = 0;
             this.seven.Tag = "55";
-            this.seven.Text = "7";
+            this.seven.Text = "&\r\n7";
             this.seven.UseVisualStyleBackColor = false;
             this.seven.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -650,7 +650,7 @@
             this.Smaller.Size = new System.Drawing.Size(47, 37);
             this.Smaller.TabIndex = 0;
             this.Smaller.Tag = "188";
-            this.Smaller.Text = ",";
+            this.Smaller.Text = "<\r\n,";
             this.Smaller.UseVisualStyleBackColor = false;
             this.Smaller.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -665,7 +665,7 @@
             this.eight.Size = new System.Drawing.Size(47, 37);
             this.eight.TabIndex = 0;
             this.eight.Tag = "56";
-            this.eight.Text = "8";
+            this.eight.Text = "*\r\n8";
             this.eight.UseVisualStyleBackColor = false;
             this.eight.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -710,7 +710,7 @@
             this.Bigger.Size = new System.Drawing.Size(47, 37);
             this.Bigger.TabIndex = 0;
             this.Bigger.Tag = "190";
-            this.Bigger.Text = ".";
+            this.Bigger.Text = ">\r\n.";
             this.Bigger.UseVisualStyleBackColor = false;
             this.Bigger.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -725,7 +725,7 @@
             this.nine.Size = new System.Drawing.Size(47, 37);
             this.nine.TabIndex = 0;
             this.nine.Tag = "57";
-            this.nine.Text = "9";
+            this.nine.Text = "(\r\n9";
             this.nine.UseVisualStyleBackColor = false;
             this.nine.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -755,7 +755,7 @@
             this.Clon.Size = new System.Drawing.Size(47, 37);
             this.Clon.TabIndex = 0;
             this.Clon.Tag = "186";
-            this.Clon.Text = ";";
+            this.Clon.Text = ":\r\n;";
             this.Clon.UseVisualStyleBackColor = false;
             this.Clon.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -770,7 +770,7 @@
             this.Question.Size = new System.Drawing.Size(47, 37);
             this.Question.TabIndex = 0;
             this.Question.Tag = "191";
-            this.Question.Text = "/";
+            this.Question.Text = "?\r\n/";
             this.Question.UseVisualStyleBackColor = false;
             this.Question.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -800,7 +800,7 @@
             this.ten.Size = new System.Drawing.Size(47, 37);
             this.ten.TabIndex = 0;
             this.ten.Tag = "48";
-            this.ten.Text = "0";
+            this.ten.Text = ")\r\n0";
             this.ten.UseVisualStyleBackColor = false;
             this.ten.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -815,7 +815,7 @@
             this.OpenBracket.Size = new System.Drawing.Size(47, 37);
             this.OpenBracket.TabIndex = 0;
             this.OpenBracket.Tag = "96";
-            this.OpenBracket.Text = "{\r\n";
+            this.OpenBracket.Text = "{\r\n[";
             this.OpenBracket.UseVisualStyleBackColor = false;
             this.OpenBracket.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -830,7 +830,7 @@
             this.Quotes.Size = new System.Drawing.Size(47, 37);
             this.Quotes.TabIndex = 0;
             this.Quotes.Tag = "99";
-            this.Quotes.Text = "\'";
+            this.Quotes.Text = "\"\r\n\'";
             this.Quotes.UseVisualStyleBackColor = false;
             this.Quotes.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -875,7 +875,7 @@
             this.Dash.Size = new System.Drawing.Size(47, 37);
             this.Dash.TabIndex = 0;
             this.Dash.Tag = "189";
-            this.Dash.Text = "-";
+            this.Dash.Text = "-\r\n_";
             this.Dash.UseVisualStyleBackColor = false;
             this.Dash.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -890,7 +890,7 @@
             this.CloseBracket.Size = new System.Drawing.Size(47, 37);
             this.CloseBracket.TabIndex = 0;
             this.CloseBracket.Tag = "97";
-            this.CloseBracket.Text = "}\r\n";
+            this.CloseBracket.Text = "}\r\n]";
             this.CloseBracket.UseVisualStyleBackColor = false;
             this.CloseBracket.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -920,7 +920,7 @@
             this.Equal.Size = new System.Drawing.Size(47, 37);
             this.Equal.TabIndex = 0;
             this.Equal.Tag = "187";
-            this.Equal.Text = "=";
+            this.Equal.Text = "+\r\n=";
             this.Equal.UseVisualStyleBackColor = false;
             this.Equal.Click += new System.EventHandler(this.Any_Click);
             // 
@@ -935,24 +935,24 @@
             this.Scars.Size = new System.Drawing.Size(47, 37);
             this.Scars.TabIndex = 0;
             this.Scars.Tag = "98";
-            this.Scars.Text = "\\";
+            this.Scars.Text = "|\r\n\\";
             this.Scars.UseVisualStyleBackColor = false;
             this.Scars.Click += new System.EventHandler(this.Any_Click);
             // 
-            // Enter_Button
+            // Enter
             // 
-            this.Enter_Button.BackColor = System.Drawing.Color.Black;
-            this.Enter_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Enter_Button.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Enter_Button.ForeColor = System.Drawing.Color.White;
-            this.Enter_Button.Location = new System.Drawing.Point(653, 98);
-            this.Enter_Button.Name = "Enter_Button";
-            this.Enter_Button.Size = new System.Drawing.Size(135, 37);
-            this.Enter_Button.TabIndex = 0;
-            this.Enter_Button.Tag = "13";
-            this.Enter_Button.Text = "Enter";
-            this.Enter_Button.UseVisualStyleBackColor = false;
-            this.Enter_Button.Click += new System.EventHandler(this.Any_Click);
+            this.Enter.BackColor = System.Drawing.Color.Black;
+            this.Enter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Enter.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Enter.ForeColor = System.Drawing.Color.White;
+            this.Enter.Location = new System.Drawing.Point(653, 98);
+            this.Enter.Name = "Enter";
+            this.Enter.Size = new System.Drawing.Size(135, 37);
+            this.Enter.TabIndex = 0;
+            this.Enter.Tag = "13";
+            this.Enter.Text = "Enter";
+            this.Enter.UseVisualStyleBackColor = false;
+            this.Enter.Click += new System.EventHandler(this.Any_Click);
             // 
             // App
             // 
@@ -1226,7 +1226,7 @@
             this.Fn.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Fn.Location = new System.Drawing.Point(52, 185);
             this.Fn.Name = "Fn";
-            this.Fn.Size = new System.Drawing.Size(47, 35);
+            this.Fn.Size = new System.Drawing.Size(47, 36);
             this.Fn.TabIndex = 2;
             this.Fn.Text = "Fn";
             this.Fn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1235,94 +1235,109 @@
             // 
             // LShift
             // 
+            this.LShift.Appearance = System.Windows.Forms.Appearance.Button;
             this.LShift.BackColor = System.Drawing.Color.Black;
+            this.LShift.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.LShift.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LShift.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LShift.Location = new System.Drawing.Point(-1, 141);
             this.LShift.Name = "LShift";
             this.LShift.Size = new System.Drawing.Size(100, 37);
-            this.LShift.TabIndex = 4;
-            this.LShift.Tag = "160";
+            this.LShift.TabIndex = 6;
             this.LShift.Text = "Shift";
             this.LShift.UseVisualStyleBackColor = false;
-            this.LShift.Click += new System.EventHandler(this.Any_Click);
-            // 
-            // Caps
-            // 
-            this.Caps.BackColor = System.Drawing.Color.Black;
-            this.Caps.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Caps.Location = new System.Drawing.Point(-1, 100);
-            this.Caps.Name = "Caps";
-            this.Caps.Size = new System.Drawing.Size(65, 36);
-            this.Caps.TabIndex = 5;
-            this.Caps.Tag = "20";
-            this.Caps.Text = "Caps";
-            this.Caps.UseVisualStyleBackColor = false;
-            this.Caps.Click += new System.EventHandler(this.Any_Click);
+            this.LShift.CheckedChanged += new System.EventHandler(this.LShift_CheckedChanged);
             // 
             // LCtrl
             // 
+            this.LCtrl.Appearance = System.Windows.Forms.Appearance.Button;
             this.LCtrl.BackColor = System.Drawing.Color.Black;
+            this.LCtrl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.LCtrl.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LCtrl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LCtrl.Location = new System.Drawing.Point(-1, 185);
             this.LCtrl.Name = "LCtrl";
-            this.LCtrl.Size = new System.Drawing.Size(47, 35);
+            this.LCtrl.Size = new System.Drawing.Size(47, 36);
             this.LCtrl.TabIndex = 6;
-            this.LCtrl.Tag = "162";
             this.LCtrl.Text = "Ctrl";
             this.LCtrl.UseVisualStyleBackColor = false;
-            this.LCtrl.Click += new System.EventHandler(this.Any_Click);
+            this.LCtrl.CheckedChanged += new System.EventHandler(this.LCtrl_CheckedChanged);
             // 
             // LAlt
             // 
+            this.LAlt.Appearance = System.Windows.Forms.Appearance.Button;
             this.LAlt.BackColor = System.Drawing.Color.Black;
+            this.LAlt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.LAlt.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LAlt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LAlt.Location = new System.Drawing.Point(158, 185);
             this.LAlt.Name = "LAlt";
-            this.LAlt.Size = new System.Drawing.Size(47, 35);
-            this.LAlt.TabIndex = 7;
-            this.LAlt.Tag = "164";
+            this.LAlt.Size = new System.Drawing.Size(47, 36);
+            this.LAlt.TabIndex = 6;
             this.LAlt.Text = "Alt";
+            this.LAlt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LAlt.UseVisualStyleBackColor = false;
-            this.LAlt.Click += new System.EventHandler(this.Any_Click);
             // 
             // RAlt
             // 
+            this.RAlt.Appearance = System.Windows.Forms.Appearance.Button;
             this.RAlt.BackColor = System.Drawing.Color.Black;
+            this.RAlt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RAlt.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RAlt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RAlt.Location = new System.Drawing.Point(476, 185);
             this.RAlt.Name = "RAlt";
-            this.RAlt.Size = new System.Drawing.Size(47, 35);
-            this.RAlt.TabIndex = 8;
-            this.RAlt.Tag = "165";
+            this.RAlt.Size = new System.Drawing.Size(47, 36);
+            this.RAlt.TabIndex = 6;
             this.RAlt.Text = "Alt";
+            this.RAlt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RAlt.UseVisualStyleBackColor = false;
-            this.RAlt.Click += new System.EventHandler(this.Any_Click);
             // 
             // RCtrl
             // 
+            this.RCtrl.Appearance = System.Windows.Forms.Appearance.Button;
             this.RCtrl.BackColor = System.Drawing.Color.Black;
+            this.RCtrl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RCtrl.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RCtrl.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RCtrl.Location = new System.Drawing.Point(529, 184);
+            this.RCtrl.Location = new System.Drawing.Point(529, 185);
             this.RCtrl.Name = "RCtrl";
-            this.RCtrl.Size = new System.Drawing.Size(47, 37);
-            this.RCtrl.TabIndex = 9;
-            this.RCtrl.Tag = "163";
+            this.RCtrl.Size = new System.Drawing.Size(47, 36);
+            this.RCtrl.TabIndex = 6;
             this.RCtrl.Text = "Ctrl";
+            this.RCtrl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RCtrl.UseVisualStyleBackColor = false;
-            this.RCtrl.Click += new System.EventHandler(this.Any_Click);
+            this.RCtrl.CheckedChanged += new System.EventHandler(this.RCtrl_CheckedChanged);
             // 
             // RShift
             // 
+            this.RShift.Appearance = System.Windows.Forms.Appearance.Button;
             this.RShift.BackColor = System.Drawing.Color.Black;
+            this.RShift.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RShift.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RShift.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RShift.Location = new System.Drawing.Point(688, 141);
             this.RShift.Name = "RShift";
-            this.RShift.Size = new System.Drawing.Size(100, 37);
-            this.RShift.TabIndex = 10;
-            this.RShift.Tag = "161";
+            this.RShift.Size = new System.Drawing.Size(100, 38);
+            this.RShift.TabIndex = 6;
             this.RShift.Text = "Shift";
+            this.RShift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.RShift.UseVisualStyleBackColor = false;
-            this.RShift.Click += new System.EventHandler(this.Any_Click);
+            this.RShift.CheckedChanged += new System.EventHandler(this.RShift_CheckedChanged);
+            // 
+            // Caps
+            // 
+            this.Caps.Appearance = System.Windows.Forms.Appearance.Button;
+            this.Caps.BackColor = System.Drawing.Color.Black;
+            this.Caps.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Caps.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Caps.Location = new System.Drawing.Point(-1, 100);
+            this.Caps.Name = "Caps";
+            this.Caps.Size = new System.Drawing.Size(65, 37);
+            this.Caps.TabIndex = 7;
+            this.Caps.Text = "Caps";
+            this.Caps.UseVisualStyleBackColor = false;
+            this.Caps.CheckedChanged += new System.EventHandler(this.Caps_CheckedChanged);
             // 
             // Form1
             // 
@@ -1330,13 +1345,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(979, 222);
+            this.ClientSize = new System.Drawing.Size(979, 224);
+            this.Controls.Add(this.Caps);
             this.Controls.Add(this.RShift);
             this.Controls.Add(this.RCtrl);
             this.Controls.Add(this.RAlt);
             this.Controls.Add(this.LAlt);
             this.Controls.Add(this.LCtrl);
-            this.Controls.Add(this.Caps);
             this.Controls.Add(this.LShift);
             this.Controls.Add(this.Fn);
             this.Controls.Add(this.Fade);
@@ -1357,7 +1372,7 @@
             this.Controls.Add(this.Del);
             this.Controls.Add(this.Back);
             this.Controls.Add(this.App);
-            this.Controls.Add(this.Enter_Button);
+            this.Controls.Add(this.Enter);
             this.Controls.Add(this.Scars);
             this.Controls.Add(this.Equal);
             this.Controls.Add(this.Right_Button);
@@ -1482,7 +1497,7 @@
         private System.Windows.Forms.Button Right_Button;
         private System.Windows.Forms.Button Equal;
         private System.Windows.Forms.Button Scars;
-        private System.Windows.Forms.Button Enter_Button;
+        private System.Windows.Forms.Button Enter;
         private System.Windows.Forms.Button App;
         private System.Windows.Forms.Button Back;
         private System.Windows.Forms.Button Del;
@@ -1502,13 +1517,13 @@
         private System.Windows.Forms.Button Dock_Button;
         private System.Windows.Forms.Button Fade;
         private System.Windows.Forms.CheckBox Fn;
-        private System.Windows.Forms.Button LShift;
-        private System.Windows.Forms.Button Caps;
-        private System.Windows.Forms.Button LCtrl;
-        private System.Windows.Forms.Button LAlt;
-        private System.Windows.Forms.Button RAlt;
-        private System.Windows.Forms.Button RCtrl;
-        private System.Windows.Forms.Button RShift;
+        private System.Windows.Forms.CheckBox LShift;
+        private System.Windows.Forms.CheckBox LCtrl;
+        private System.Windows.Forms.CheckBox LAlt;
+        private System.Windows.Forms.CheckBox RAlt;
+        private System.Windows.Forms.CheckBox RCtrl;
+        private System.Windows.Forms.CheckBox RShift;
+        private System.Windows.Forms.CheckBox Caps;
     }
 }
 

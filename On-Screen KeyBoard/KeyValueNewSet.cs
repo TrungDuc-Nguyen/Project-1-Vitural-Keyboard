@@ -29,7 +29,7 @@ namespace On_Screen_KeyBoard
         /// <returns></returns>
         public static string GetSendKey1(Button mybutton)
         {
-            return myKeys.Find(keyset => keyset.name == mybutton.Text).sendkey1;
+            return myKeys.Find(keyset => keyset.name == mybutton.Name).sendkey1;
         }
         /// <summary>
         /// Hàm trả về chuỗi SendKey2 là khi ấn phím Shift
@@ -38,16 +38,16 @@ namespace On_Screen_KeyBoard
         /// <returns></returns>
         public static string GetSendKey2(Button mybutton)
         {
-            return myKeys.Find(keyset => keyset.name == mybutton.Text).sendkey2;
+            return myKeys.Find(keyset => keyset.name == mybutton.Name).sendkey2;
         }
         /// <summary>
-        /// Hàm trả về chuỗi SendKey3 là khi ấn phím CapLock
+        /// Hàm trả về chuỗi Sendskey4 là khi ấn Fn, dùng cho các phím chức năng F1 -> F12
         /// </summary>
         /// <param name="mybutton"></param>
         /// <returns></returns>
         public static string GetSendKey3(Button mybutton)
         {
-            return myKeys.Find(keyset => keyset.name == mybutton.Text).sendkey3;
+            return myKeys.Find(keyset => keyset.name == mybutton.Name).sendkey3;
         }
     }
 }
